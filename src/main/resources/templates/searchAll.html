@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>All Records</title>
+
+    <link rel="stylesheet" href="/static/layui/css/layui.css"
+          tppabs="http://res.layui.com/layui/dist/css/layui.css?t=1632428048355" media="all">
+    <style>
+        body{margin: 10px;}
+        .demo-carousel{height: 200px; line-height: 200px; text-align: center;}
+    </style>
+</head>
+<body>
+<!--条件查询输入框-->
+<div class="layui-container">
+    <form class="layui-form layui-form-pane" action="">
+        <div class="layui-row">
+            <div class="layui-col-md3">
+                起始日期
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="test6" name="Begintime" >
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                终止日期
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="test7" name="Updatetime" >
+                </div>
+            </div>
+            <div class="layui-col-md3">
+
+                标题
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" id="title" name="title">
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <button type="submit" class="layui-btn" lay-submit  lay-filter="data-search-btn">
+                    <i class="layui-icon">&#xe642;</i> 搜索
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--表格-->
+<table class="layui-hide" id="demo" lay-filter="test"></table>
+
+<!--每行的操作栏-->
+<script type="text/html" id="currentTableBar">
+    <a class="layui-btn layui-btn-xs data-count-edit" lay-event="edit">Edit</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs data-count-delete" lay-event="delete" >Delete</a>
+</script>
+
+<!--点击edit后才显示-->
+<div class="layui-row" id="popUpdateTest" style="display:none;">
+    <div class="layui-col-md10">
+        <form class="layui-form layui-from-pane" lay-filter="aaa" action="" style="margin-top:20px">
+
+            <!--不加rid，更新时会找不到rid，更新会失败, 添加hidden属性隐藏-->
+            <div class="layui-form-item" hidden="true">
+                <label class="layui-form-label">rid</label>
+                <div class="layui-input-block">
+                    <input type="text" name="rid" placeholder="请输入编号" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item" hidden="true">
+                <label class="layui-form-label">EID</label>
+                <div class="layui-input-block">
+                    <input type="text" name="eId" placeholder="请输入工号" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item" hidden="true">
+                <label class="layui-form-label">department</label>
+                <div class="layui-input-block">
+                    <input type="text" name="dId" placeholder="请输入部门" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">date</label>
+                <div class="layui-input-block">
+                    <input type="text" name="checkinDate" required lay-verify="required" placeholder="please enter the attendance date" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">arrive</label>
+                <div class="layui-input-block">
+                    <input type="text" name="arriveTime" required lay-verify="required" placeholder="please enter the arrive time" autocomplete="off"
+                           class="layui-input">
+                </div>
+
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">leave</label>
+                <div class="layui-input-block">
+                    <input type="text" name="leaveTime" required lay-verify="required" placeholder="please enter the leave time" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">result</label>
+                <div class="layui-input-block">
+                    <input type="text" name="result" required lay-verify="required" placeholder="please enter the attendance result" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="margin-top:40px">
+                <div class="layui-input-block">
+                    <button class="layui-btn  layui-btn-submit " lay-submit="" lay-filter="demo11">UPDATE</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">RESET</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--点击头部添加按钮后才显示-->
+<div class="layui-row" id="popInsertTest" style="display:none;">
+    <div class="layui-col-md10">
+        <form class="layui-form layui-from-pane" lay-filter="aaa" action="" style="margin-top:20px">
+
+            <!--不加rid，更新时会找不到rid，更新会失败, 添加hidden属性隐藏-->
+            <div class="layui-form-item" hidden="true">
+                <label class="layui-form-label">编号</label>
+                <div class="layui-input-block">
+                    <input type="text" name="rid" placeholder="请输入编号" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">EID</label>
+                <div class="layui-input-block">
+                    <input type="text" name="eId" placeholder="please enter the employee ID" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">department</label>
+                <div class="layui-input-block">
+                    <input type="text" name="dId" placeholder="please enter the department" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">date</label>
+                <div class="layui-input-block">
+                    <input type="text" name="checkinDate" required lay-verify="required" placeholder="please enter the attendance date" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">arrive</label>
+                <div class="layui-input-block">
+                    <input type="text" name="arriveTime" required lay-verify="required" placeholder="please enter the arrive time" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">leave</label>
+                <div class="layui-input-block">
+                    <input type="text" name="leaveTime" required lay-verify="required" placeholder="please enter the leave time" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">result</label>
+                <div class="layui-input-block">
+                    <input type="text" name="result" required lay-verify="required" placeholder="please enter the attendance result" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="margin-top:40px">
+                <div class="layui-input-block">
+                    <button class="layui-btn  layui-btn-submit " lay-submit="" lay-filter="demo11">ADD</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">RESET</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="/static/layui/layui.js"
+        tppabs="http://res.layui.com/layui/dist/layui.js?t=1632428048355"></script>
+<script>
+
+    layui.config({
+        version: '1632428048355' //为了更新 js 缓存，可忽略
+    });
+
+    //加载模块
+    layui.use(['table', 'jquery', 'layer', 'form'], function(){ //亦可加载特定模块：layui.use(['layer', 'laydate', function(){
+                          //得到各种内置组件
+        var layer = layui.layer //弹层
+            ,laypage = layui.laypage //分页
+            ,table = layui.table //表格
+            , $ = layui.jquery
+            ,form = layui.form
+            ,element = layui.element //元素操作
+            ,dropdown = layui.dropdown //下拉菜单
+
+        // 查询的
+        laydate.render({
+            elem: '#test6'
+        })
+        laydate.render({
+            elem: '#test7'
+        })
+
+
+        //监听Tab切换
+        element.on('tab(demo)', function(data){
+            layer.tips('切换了 '+ data.index +'：'+ this.innerHTML, this, {
+                tips: 1
+            });
+        });
+
+        //执行一个 table 实例
+        table.render({
+            elem: '#demo'   // id名
+            ,height: 400
+            ,url: '../search/searchAll/' //数据接口
+          //  ,url: '../search/searchAll/-page=1&limit=20.js' //数据接口
+            ,title: '所有考勤记录表'
+            ,page: true //开启分页
+            ,limits: [5, 10, 15, 20, 50, 100]
+            ,limit: 10
+
+            ,toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
+            ,totalRow: true //开启合计行
+            ,cols: [[ //表头
+
+                {type: 'checkbox', fixed: 'left'}
+                // id是记录条数
+                // field 必须和算法端的数据名称一样才能识别
+               // sort: true
+                ,{field: 'rid', title: 'Rid', width:60,totalRowText: 'Total'}
+                ,{field: 'eId', title: 'Eid', width:80}
+                ,{field: 'name', title: 'name', width:90}
+                ,{field: 'dId', title: 'department', width:80, sort: true}
+                ,{field: 'checkinDate', title: 'date', width:110, sort: true}
+                ,{field: 'arriveTime', title: 'arrive', width:180}
+                ,{field: 'leaveTime', title: 'leave', width:180}
+                ,{field: 'result', title: 'result', width: 80, sort: true, totalRow: true}
+                , {title: 'more', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
+            ]]
+
+        });
+
+        //监听头工具栏事件
+        table.on('toolbar(test)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id)
+                , data = checkStatus.data; //获取选中的数据
+            switch (obj.event) {
+                case 'add':
+                    layer.msg('ADD');
+                    adduser();
+                    break;
+                case 'update':
+                    if (data.length === 0) {
+                        layer.msg('Please select a line');
+                    } else if (data.length > 1) {
+                        layer.msg('Only one can be edited at a time');
+                    } else {
+                        layer.alert('Edit [id]：' + checkStatus.data[0].rid);
+                        var data1 = data[0];
+                     //   console.log("新data1为：", data1);
+                        updateuser(obj, data1);
+                    }
+                    break;
+                case 'delete':
+                    if (data.length === 0) {
+                        layer.msg('Please select a line');
+                    } else {
+                        console.log("data[0].id为", data[0].rid);
+                        layer.msg('delete');
+                        deleteuser(data[0].rid);
+                    }
+                    break;
+            }
+            ;
+        });
+
+
+        //监听行工具事件
+        table.on('tool(test)', function (obj) {
+            var data = obj.data;
+            var id = data.rid;//选中行的id
+
+        //    console.log("data数据为：", data);
+          //  console.log("id数据为：", data.rid);
+            if (obj.event === 'edit') {
+                // layer.alert('编辑行：<br>' + JSON.stringify(data))
+                updateuser(obj, data);
+            } else if (obj.event === 'delete') {
+                layer.confirm('sure to delete this line?', function (index) {
+                    // obj.del();
+                    layer.close(index);
+                    deleteuser(id);
+                });
+            }
+        });
+
+
+        //删除记录
+        function deleteuser(idList) {
+
+            var url = "../search/deleteRecord?rId=" + idList;
+            console.log("url为：", url);
+            $.ajax({
+                type: "post",
+                url: url,
+                contentType: 'application/json',   // 前台发送到后台的数据类型
+                datatype: "json",   //后台返回前台的数据类型
+                success: function (resp) {
+                    console.log(resp);
+                    if (resp.code == 0) {
+                        layer.msg("Deleted successfully", {icon: 6});
+                        //刷新数据
+                        $(".layui-laypage-btn").click();
+                    } else {
+                        layer.msg("Failed to delete", {icon: 5});
+                    }
+                }
+            })
+            return false;
+        }
+
+        //编辑更新记录
+        function updateuser(obj, data) {
+
+            //回填数据到表单
+            form.val("aaa", {
+                "rid": data.rid
+                ,"eId":data.eId
+                ,"dId":data.dId
+                , "checkinDate": data.checkinDate
+                , "arriveTime": data.arriveTime
+                , "leaveTime": data.leaveTime
+                , "result": data.result
+            });
+            layer.open({
+                //layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+                type: 1,
+                title: "Modify attendance record",
+                area: ['420px', '330px'],
+                content: $("#popUpdateTest")//引用的弹出层的页面层的方式加载修改界面表单
+            });
+
+            // console.log("修改原始数据为：", data);
+            // console.log("id类型", typeof data.rid);
+            // console.log("obj为：", obj);
+            form.on('submit(demo11)', function (massage) {
+
+                console.log("message为：", massage);
+                console.log(massage.field);
+                var data1 = massage.field;
+
+                $.ajax({
+                    type: "post",
+                    url: "/search/updateRecord",
+                    data: JSON.stringify(massage.field),
+                    // data: { id: data.id, name: data1.name, sex: data1.sex, tell: data1.tell, addr: data1.addr },
+                    contentType: 'application/json',
+                    datatype: "json",
+                    success: function (resp) {
+                        console.log(resp);
+                        layer.closeAll();//关闭所有的弹出层
+                        if (resp.code == 0) {
+                            layer.msg("Update successfully", {icon: 6});
+                            //刷新数据
+                            $(".layui-laypage-btn").click();
+                        } else {
+                            layer.msg("Failed to update", {icon: 5});
+                        }
+                    }
+                })
+                return false
+
+            })
+        }
+
+
+        //添加记录
+        function adduser() {
+            layer.open({
+                //layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+                type: 1,
+                title: "Adding new attendance record",
+                area: ['420px', '330px'],
+                content: $("#popInsertTest")//引用的弹出层的页面层的方式加载修改界面表单
+            });
+            console.log("测试输出");
+            //监听提交
+            form.on('submit(demo11)', function (message) {
+
+                var field = message.field;
+                console.log(field);
+                $.ajax({
+                    type: "post",
+                    url: "search/insertRecord",
+                    data: JSON.stringify(field),
+                    contentType: 'application/json',
+                    datatype: "json",
+                    success: function (resp) {
+                        console.log(resp);
+                        layer.closeAll();//关闭所有的弹出层
+                        if (resp.code == 0) {
+                            layer.msg("Add successfully", {icon: 6});
+                            //刷新数据
+                            $(".layui-laypage-btn").click();
+                        } else {
+                            layer.msg("Failed to add", {icon: 5});
+                        }
+                    }
+                });
+                return false
+            });
+
+        }
+
+
+        // 增删改参考： https://www.freesion.com/article/8597906632/
+
+        //这里做条件查询   https://www.jianshu.com/p/ccd2e32b926f 参考
+        form.on('submit(data-search-btn)',function (data) {
+            var result = JSON.stringify(data.field);
+            table.reload('demo', {
+                page: {
+                    curr: 1
+                }
+                , where: {
+                    QueryBlog: result
+                }
+            }, 'data');
+            return false
+        })
+
+
+    });
+</script>
+<script src="/res/static/tongji/baidu.js"></script>
+</body>
+</html>

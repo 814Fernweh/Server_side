@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.project.mapper.ManagerMapper" >
+  <resultMap id="BaseResultMap" type="com.example.project.entity.Manager" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="pwd" property="pwd" jdbcType="CHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from manager
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.project.entity.Manager" >
+    insert into manager (id, username, pwd
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{pwd,jdbcType=CHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.project.entity.Manager" >
+    update manager
+    set username = #{username,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, username, pwd
+    from manager
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+<!--  登录时 用username找到管理员-->
+  <select id="selectByUsername" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id,username, pwd
+    from manager
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, username, pwd
+    from manager
+  </select>
+
+<!--  <select id="loginPage" parameterType="Map" resultType="com.example.project.entity.Manager">-->
+<!--    SELECT username FROM manager where username= #{username} and pwd=#{pwd}-->
+<!--  </select>-->
+
+</mapper>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.project.mapper.EmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.example.project.entity.Employee" >
+    <id column="eid" property="eid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="gender" property="gender" jdbcType="INTEGER" />
+    <result column="longitude" property="longitude" jdbcType="DECIMAL" />
+    <result column="latitude" property="latitude" jdbcType="DECIMAL" />
+    <result column="telephone" property="telephone" jdbcType="CHAR" />
+    <result column="pwd" property="pwd" jdbcType="CHAR" />
+    <result column="d_id" property="dId" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from employee
+    where eid = #{eid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.project.entity.Employee" >
+    insert into employee (eid, name, age, 
+      gender, longitude, latitude, 
+      telephone, pwd, d_id)
+    values (#{eid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{gender,jdbcType=INTEGER}, #{longitude,jdbcType=DECIMAL}, #{latitude,jdbcType=DECIMAL}, 
+      #{telephone,jdbcType=CHAR}, #{pwd,jdbcType=CHAR}, #{dId,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.project.entity.Employee" >
+    update employee
+    set name = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      gender = #{gender,jdbcType=INTEGER},
+      longitude = #{longitude,jdbcType=DECIMAL},
+      latitude = #{latitude,jdbcType=DECIMAL},
+      telephone = #{telephone,jdbcType=CHAR},
+      pwd = #{pwd,jdbcType=CHAR},
+      d_id = #{dId,jdbcType=INTEGER}
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+
+  <update id="updatePwdByPrimaryKey" parameterType="com.example.project.entity.Employee" >
+    update employee
+    set  pwd = #{pwd,jdbcType=CHAR}
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select eid, name, age, gender, longitude, latitude, telephone, pwd, d_id
+    from employee
+    where eid = #{eid,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByTele" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select eid, name, age, gender, longitude, latitude, telephone, pwd, d_id
+    from employee
+    where telephone = #{telephone,jdbcType=CHAR}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select eid, name, age, gender, longitude, latitude, telephone, pwd, d_id
+    from employee
+  </select>
+</mapper>

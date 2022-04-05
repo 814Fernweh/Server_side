@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.project.mapper.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.example.project.entity.Record" >
+    <id column="rid" property="rid" jdbcType="INTEGER" />
+    <result column="e_id" property="eId" jdbcType="INTEGER" />
+    <result column="e_name" property="name" jdbcType="VARCHAR" />
+    <result column="d_id" property="dId" jdbcType="INTEGER" />
+    <result column="checkinDate" property="checkinDate" jdbcType="CHAR" />
+    <result column="arriveTime" property="arriveTime" jdbcType="TIMESTAMP" />
+    <result column="leaveTime" property="leaveTime" jdbcType="TIMESTAMP" />
+    <result column="arriveResult" property="arriveResult" jdbcType="CHAR" />
+    <result column="leaveResult" property="leaveResult" jdbcType="CHAR" />
+    <result column="result" property="result" jdbcType="CHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from record
+    where rid = #{rid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.project.entity.Record" >
+    insert into record (e_id,e_name, d_id,
+      checkinDate, arriveTime, leaveTime, arriveResult, leaveResult,
+      result)
+    values (#{eId,jdbcType=INTEGER},  #{name,jdbcType=VARCHAR}, #{dId,jdbcType=INTEGER},
+      #{checkinDate,jdbcType=DATE}, #{arriveTime,jdbcType=TIMESTAMP}, #{leaveTime,jdbcType=TIMESTAMP},
+      #{arriveResult,jdbcType=CHAR},#{leaveResult,jdbcType=CHAR}, #{result,jdbcType=CHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.example.project.entity.Record" >
+    update record
+    set e_id = #{eId,jdbcType=INTEGER},
+      d_id = #{dId,jdbcType=INTEGER},
+      checkinDate = #{checkinDate,jdbcType=CHAR},
+      arriveTime = #{arriveTime,jdbcType=TIMESTAMP},
+      leaveTime = #{leaveTime,jdbcType=TIMESTAMP},
+      arriveResult= #{arriveResult,jdbcType=CHAR},
+      leaveResult=  #{leaveResult,jdbcType=CHAR},
+      result = #{result,jdbcType=CHAR}
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select rid, e_id, d_id, checkinDate, arriveTime, leaveTime,arriveResult, leaveResult, result
+    from record
+    where rid = #{rid,jdbcType=INTEGER}
+  </select>
+
+<!-- 根据eid和日期找出上班的record 再更新下班的record-->
+  <select id="selectByEidAndDate" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+    select rid, e_id, d_id, checkinDate, arriveTime, leaveTime,arriveResult, leaveResult, result
+    from record
+    where e_id = #{eid,jdbcType=INTEGER} and checkinDate=#{checkinDate,jdbcType=CHAR}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select rid, e_id, e_name, d_id, checkinDate, arriveTime, leaveTime,arriveResult,leaveResult, result
+    from record
+  </select>
+
+  <select id="selectByDepartment" resultMap="BaseResultMap"  parameterType="java.lang.Integer" >
+    select rid, e_id, d_id, checkinDate, arriveTime, leaveTime,arriveResult, leaveResult, result
+    from record
+    where d_id = #{did,jdbcType=INTEGER}
+  </select>
+
+
+  <select id="searchByDepartment" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+   select * from record where 1 = 1
+  <if test="dId != null">
+        and d_id like '%${dId}%'
+  </if>
+    <if test="eId != null">
+      and e_id like '%${eId}%'
+    </if>
+  </select>
+
+</mapper>
