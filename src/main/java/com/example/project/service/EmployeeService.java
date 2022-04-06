@@ -3,6 +3,10 @@ package com.example.project.service;
 import com.example.project.entity.Employee;
 import com.example.project.entity.Record;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public interface EmployeeService {
 
@@ -13,5 +17,7 @@ public interface EmployeeService {
     int updateByPrimaryKey(Employee employee);
 
     int updatePwdByPrimaryKey(Employee employee);
-
+  //  List<Employee> selectAll();
+    Map<String, Object> selectAll();
+    Map<String, Object>  selectByEIDDID(HashMap<String,Object> map);
 }

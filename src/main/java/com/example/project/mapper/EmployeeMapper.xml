@@ -56,7 +56,20 @@
   </select>
 
   <select id="selectAll" resultMap="BaseResultMap" >
-    select eid, name, age, gender, longitude, latitude, telephone, pwd, d_id
+    select eid, name, age, gender, longitude, latitude, telephone, d_id
     from employee
   </select>
+<!--  select all 里面删了pwd-->
+
+  <select id="selectByEIDDID" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+    select eid, name, age, gender, longitude, latitude, telephone, d_id
+    from employee where 1=1
+    <if test="dId != null">
+      and d_id like '%${dId}%'
+    </if>
+    <if test="eId != null">
+      and eid like '%${eId}%'
+    </if>
+  </select>
+
 </mapper>

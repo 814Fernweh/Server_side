@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Search attendance records</title>
+    <title>Manage employee information</title>
 
     <link rel="stylesheet" href="/static/layui/css/layui.css"
           tppabs="http://res.layui.com/layui/dist/css/layui.css?t=1632428048355" media="all">
@@ -16,24 +16,10 @@
 <div class="layuimini-container">
     <div class="layuimini-main">
         <fieldset class="table-search-fieldset">
-            <legend>Search attendance records</legend>
+            <legend>Manage employee</legend>
             <div style="margin: 10px 10px 10px 10px" id="btn">
                 <form class="layui-form layui-form-pane" action="">
                     <div class="layui-form-item">
-
-                        <div class="layui-inline">
-                            <label class="layui-form-label">Range</label>
-                            <div class="layui-input-inline" >
-                                <!--注意此处input标签里的id-->
-                                <input class="layui-input" name="keyword3" id="demoReload3" placeholder="start" autocomplete="off">
-                            </div>
-                            <div class="layui-form-mid">-</div>
-                            <div class="layui-input-inline" >
-                                <input class="layui-input" name="keyword4" id="demoReload4" placeholder="end" autocomplete="off">
-
-                            </div>
-                        </div>
-
 
                         <div class="layui-inline">
                             <label class="layui-form-label">Department</label>
@@ -58,7 +44,7 @@
             </div>
         </fieldset>
         <!--注意此处table标签里的id-->
-<!--        <table class="layui-table layui-hide" id="test" lay-filter="test"></table>-->
+
         <table class="layui-table  layui-hide" id="test" lay-filter="test"></table>
     </div>
 </div>
@@ -231,12 +217,6 @@
             , tree = layui.tree;
 
 
-//选择日期范围
-        laydate.render({
-            elem: '#test6'
-            //设置开始日期、日期日期的 input 选择器
-            ,range: ['#demoReload3', '#demoReload4']
-        });
         //监听Tab切换    表格
         element.on('tab(test)', function (data) {
             layer.tips('切换了 ' + data.index + '：' + this.innerHTML, this, {
@@ -249,32 +229,25 @@
         table.render({
             elem: '#test'   // id名
             , height: 400
-            //../search/searchAsDepartment?did=2  用这种方式可以直接得到数据
-            , url: '../search/list' //数据接口
-            // ,request: {} //如果无需自定义请求参数，可不加该参数
+            , url: '../employee/listAllEmployee' //数据接口
             , id: 'test'
-            // ,url: '../controller/search/searchAll/-page=1&limit=20.js' //数据接口
-            , title: '部门考勤表'
-            ,page: true //开启分页
+            , title: 'employee table'
+            ,page: true
             ,limits: [5, 10, 15, 20, 50, 100]
             ,limit: 10
             , toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
             , totalRow: true //开启合计行
             , cols: [[ //表头
-
                 {type: 'checkbox', fixed: 'left'}
-                // id是记录条数
-                // field 必须和算法端的数据名称一样才能识别
-                // ,{field: 'id', title: 'ID', width:80, sort: true, fixed: 'left', totalRowText: '合计：'}
-                , {field: 'rid', title: 'Rid', width: 80,totalRowText: 'Total'}
-                , {field: 'eId', title: 'Eid', width: 80}
+                // field 必须和算法端entity文件的数据名称一样才能识别
+                , {field: 'eid', title: 'Eid', width: 80,sort: true}
                 ,{field: 'name', title: 'name', width:90}
+                ,{field: 'age', title: 'age', width:90}
+                ,{field: 'gender', title: 'gender', width:90,sort: true}
+                ,{field: 'longitude', title: 'longitude', width:90}
+                ,{field: 'latitude', title: 'latitude', width:90}
+                ,{field: 'telephone', title: 'telephone', width:90}
                 , {field: 'dId', title: 'department', width: 80, sort: true}
-                , {field: 'checkinDate', title: 'date', width: 110, sort: true}
-                , {field: 'arriveTime', title: 'arrive', width: 180}
-                , {field: 'leaveTime', title: 'leave', width: 180}
-                // 考勤结果
-                , {field: 'result', title: 'result', width: 80, sort: true, totalRow: true}
                 , {title: 'more', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
 
             ]]
@@ -286,8 +259,7 @@
             reload: function () {
                 var demoReload = $('#demoReload');	//得到搜索框里已输入的数据
                 var demoReload2 = $('#demoReload2');
-                var demoReload3 = $('#demoReload3');	//得到搜索框里已输入的数据
-                var demoReload4 = $('#demoReload4');
+
                 //执行重载
                 table.reload('test', {
                     page: {
@@ -296,8 +268,7 @@
                     , where: {
                         dId: demoReload.val(),		//在表格中进行搜索
                         eId: demoReload2.val(),
-                        start: demoReload3.val(),		//在表格中进行搜索
-                        end: demoReload4.val()
+
                     }
                 });
             }
@@ -441,7 +412,6 @@
 
             })
         }
-
 
         //添加记录
         function adduser() {

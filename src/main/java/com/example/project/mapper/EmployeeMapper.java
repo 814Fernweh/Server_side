@@ -4,7 +4,9 @@ import com.example.project.entity.Employee;
 import com.example.project.entity.Record;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface EmployeeMapper {
@@ -19,5 +21,6 @@ public interface EmployeeMapper {
     int updateByPrimaryKey(Employee employee);
     int updatePwdByPrimaryKey(Employee employee);
     Employee selectByTele(String telephone);
+    List<Employee> selectByEIDDID(HashMap<String,Object> map);
 
 }

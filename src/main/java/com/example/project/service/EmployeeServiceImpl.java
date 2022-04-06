@@ -6,6 +6,9 @@ import com.example.project.mapper.EmployeeMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Service(value = "employeeService")
@@ -36,5 +39,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeMapper.insert(employee);
     }
 
+    @Override
+    public Map<String, Object> selectAll(){
+        Map<String, Object> map=new HashMap<>();
+        List<Employee> data=employeeMapper.selectAll();
+        map.put("data",data);
+        return map;
+    }
 
+    @Override
+    public Map<String, Object>  selectByEIDDID(HashMap<String,Object> map){
+        Map<String, Object> map1=new HashMap<>();
+        List<Employee> data=employeeMapper.selectByEIDDID(map);
+        map1.put("data",data);
+        return map1;
+    }
 }
