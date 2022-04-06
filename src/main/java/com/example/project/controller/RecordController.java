@@ -166,19 +166,87 @@ public class RecordController {
         for (int i=0;i<7;i++){
             //获取每个日期的record
             r=recordService.selectTheArrive(weekclienteID,pastDaysList.get(i));
+            // 找到记录了  把考勤的具体时间传给客户端
             if(r!=null) {
-                map.put(pastDaysList.get(i)+",arrive",r.getArriveTime());
-                if(r.getLeaveTime()!=null){
+                if(r.getArriveTime()!=null && r.getLeaveTime()!=null ){
+                    map.put(pastDaysList.get(i)+",arrive",r.getArriveTime());
                     map.put(pastDaysList.get(i)+",leave",r.getLeaveTime());
+                    map.put(pastDaysList.get(i)+",re",r.getResult());
                 }
-                else{
-                    map.put(pastDaysList.get(i)+",leave","no leave");
+                else if(r.getArriveTime()==null && r.getLeaveTime()!=null  ){
+                    map.put(pastDaysList.get(i)+",arrive","no arrive");
+                    map.put(pastDaysList.get(i)+",leave",r.getLeaveTime());
+                    map.put(pastDaysList.get(i)+",re",r.getResult());
                 }
 
+                else if(r.getArriveTime()!=null && r.getLeaveTime()==null){
+                    map.put(pastDaysList.get(i)+",arrive",r.getArriveTime());
+                    map.put(pastDaysList.get(i)+",leave","no leave");
+                    map.put(pastDaysList.get(i)+",re",r.getResult());
+                }
             }
             else{
                 map.put(pastDaysList.get(i)+",arrive","no arrive");
                 map.put(pastDaysList.get(i)+",leave","no leave");
+                map.put(pastDaysList.get(i)+",re","0");
+            }
+        }
+        return map;
+    }
+
+    @RequestMapping(value="/clientSearchMonthData",method = {RequestMethod.POST})
+    @ResponseBody
+    public Map<String, Object> getMonth(String SearchMonthData) throws IOException {
+
+        JSONObject weekdata=JSONObject.parseObject(SearchMonthData);
+        weekclienteID=weekdata.getInteger("eID");
+        flag=weekdata.getInteger("flag");
+        ArrayList<Record> weekRecord;
+        Record r;
+
+        // 获取前几天的日期
+        ArrayList<String> pastDaysList = new ArrayList<>();
+        try {
+            Date today = new Date(); // 今天！
+            DateFormat day = DateFormat.getDateInstance() ;
+            //我这里传来的时间是个string类型的，所以要先转为date类型的
+            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+            Date date =sdf.parse(day.format(today));
+            for (int i = 30; i >= 0; i--) {
+                pastDaysList.add(getPastDate(i,date));
+            }
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        // 获取到一个月的日期了  String格式的
+        Map<String, Object> map = new HashMap<String, Object>();
+        // record.setCheckinDate(day.format(date1));   // 在考勤记录中 添加日期
+        for (int i=0;i<31;i++){
+            //获取每个日期的record
+            r=recordService.selectTheArrive(weekclienteID,pastDaysList.get(i));
+            // 找到记录了  把考勤的具体时间传给客户端
+            if(r!=null) {
+                if(r.getArriveTime()!=null && r.getLeaveTime()!=null ){
+                    map.put(pastDaysList.get(i)+",arrive",r.getArriveTime());
+                    map.put(pastDaysList.get(i)+",leave",r.getLeaveTime());
+                    map.put(pastDaysList.get(i)+",re",r.getResult());
+                }
+                else if(r.getArriveTime()==null && r.getLeaveTime()!=null  ){
+                    map.put(pastDaysList.get(i)+",arrive","no arrive");
+                    map.put(pastDaysList.get(i)+",leave",r.getLeaveTime());
+                    map.put(pastDaysList.get(i)+",re",r.getResult());
+                }
+
+                else if(r.getArriveTime()!=null && r.getLeaveTime()==null){
+                    map.put(pastDaysList.get(i)+",arrive",r.getArriveTime());
+                    map.put(pastDaysList.get(i)+",leave","no leave");
+                    map.put(pastDaysList.get(i)+",re",r.getResult());
+                }
+            }
+            else{
+                map.put(pastDaysList.get(i)+",arrive","no arrive");
+                map.put(pastDaysList.get(i)+",leave","no leave");
+                map.put(pastDaysList.get(i)+",re","0");
             }
         }
         return map;
@@ -330,7 +398,6 @@ public class RecordController {
                     updateRe=recordService.selectTheArrive(eid, s1);
                     //获取当前时间 作为下班打卡时间
                     Date date2 = new Date();
-
                     if(resultA==0 || resultA<0 ) {
                         // c1相等c2  c1小于c2   时间早于上班时间
                         // 不更新
