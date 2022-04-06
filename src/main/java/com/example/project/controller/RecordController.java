@@ -96,13 +96,13 @@ public class RecordController {
                 msg="Attendance Success!";
                 break;
             case -1:
-                msg="You are far from your correct location";
+                msg="Far from your correct location";
                 break;
             case -2:
-                msg="You can not use a picture to check in!";
+                msg="Can not use picture";
                 break;
             case -3:
-                msg="The similarity of your face is too low, please re-take your photo";
+                msg="The similarity is too low";
                 break;
             case -4:
                 msg="some error in the checkin";
@@ -204,6 +204,7 @@ public class RecordController {
         ArrayList<Record> weekRecord;
         Record r;
 
+
         // 获取前几天的日期
         ArrayList<String> pastDaysList = new ArrayList<>();
         try {
@@ -283,11 +284,9 @@ public class RecordController {
     }
 
     // 判断时间 上班or下班or 不在考勤时间内 在查询统计时再判断、输出 不存在数据库里了
-    // 安卓端的用户自己选择上班打卡or下班 作为参数type传进来 判断如何更新record  type=1 上班 type=2 下班
     public int addRecord(Integer type,Integer eid,double longitude,double latitude,String filename) throws ParseException {
-        // 不能删掉的！！！！！！判斷數據庫有無記錄 上班
-        //        if(type==1){
-//            Record re=new Record();
+            // 不能删掉的！！！！！！判斷數據庫有無記錄 上班
+//            Record re;
 //            Date date = new Date();
 //            DateFormat day = DateFormat.getDateInstance() ;//日期格式，精确到日
 //            String s1=  day.format (date);
@@ -296,7 +295,7 @@ public class RecordController {
 //            if (re!=null){
 //                return -5; // 已經有數據
 //            }
-//        }
+
 
         int ca=checkAttendance(eid,longitude,latitude,filename);
         if(ca!=0){
@@ -306,13 +305,13 @@ public class RecordController {
         // 考勤成功了
         if(ca==0){
             // 查询有没有这条考勤记录
-                Record re=new Record();
-                Date date = new Date();   // 今天的日期中国时间！！
-                DateFormat day = DateFormat.getDateInstance() ;  //日期格式，精确到日
+                Record re;
                 //中国时间日期
-                String s1=day.format (date);
-             //   System.out.println (s1 ) ;
-                re=recordService.selectTheArrive(eid, s1);
+                SimpleDateFormat df00 = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+                String s00=df00.format(new Date());   // new Date()为获取当前系统时间
+                System.out.println (s00) ;
+
+                re=recordService.selectTheArrive(eid, s00); // 查询有没有这条考勤记录
 
             // 获取系统时间
             Calendar cal = Calendar.getInstance();
@@ -336,7 +335,7 @@ public class RecordController {
                 c3.setTime(df.parse(standardLeaveTime));
 
             }catch(java.text.ParseException e1){
-                System.err.println("格式不正确");
+                System.err.println("Wrong format");
             }
             // 将当前时间和上下班规定时间做比较
             int resultA=c1.compareTo(c2);
@@ -366,8 +365,9 @@ public class RecordController {
 
                         record.setArriveTime(curDate);    //添加上班时间
                         record.setAResult("normal");
+                        record.setResult("0");    // 上班正常 没有下班记录
                         recordService.insert(record);
-                        System.out.print("1. 成功插入新的上班数据\n");
+                        System.out.print("1.Successful insertion of new work data\n");
                         return 0;
                     }
 
@@ -378,7 +378,7 @@ public class RecordController {
                         record.setLResult("normal");
                         record.setResult("0");
                         recordService.insert(record);
-                        System.out.print("2. 成功插入新的上班数据\n");
+                        System.out.print("2.Successful insertion of new work data\n");
                         return 0;
                     }
                     if(resultA>0 || resultL<0 ) {
@@ -386,8 +386,9 @@ public class RecordController {
                         // 上班迟到了
                         record.setArriveTime(new Date());    //添加上班时间
                         record.setAResult("late arrival");
+                        record.setResult("0");   // 上班迟到了
                         recordService.insert(record);
-                        System.out.print("3. 成功插入新的上班数据\n");
+                        System.out.print("3.Successful insertion of new work data\n");
                         return 0;
                     }
                 }
@@ -395,7 +396,7 @@ public class RecordController {
                 // 今天已经打卡了  有一条考勤记录
                 else{
                     Record updateRe;
-                    updateRe=recordService.selectTheArrive(eid, s1);
+                    updateRe=recordService.selectTheArrive(eid, s00);
                     //获取当前时间 作为下班打卡时间
                     Date date2 = new Date();
                     if(resultA==0 || resultA<0 ) {
@@ -433,7 +434,6 @@ public class RecordController {
         }
 //            // 获取当前日期时间  https://www.cnblogs.com/east7/p/15389080.html
         return -4;             //其他错误   考勤失败 提示重新考勤
-
 
     }
 
