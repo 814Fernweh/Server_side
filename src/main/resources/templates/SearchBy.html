@@ -155,6 +155,13 @@
             </div>
 
             <div class="layui-form-item">
+                <label class="layui-form-label">name</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" placeholder="please enter the employee name" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
                 <label class="layui-form-label">department</label>
                 <div class="layui-input-block">
                     <input type="text" name="dId" placeholder="please enter the department" autocomplete="off" class="layui-input">
@@ -254,7 +261,7 @@
             // ,request: {} //如果无需自定义请求参数，可不加该参数
             , id: 'test'
             // ,url: '../controller/search/searchAll/-page=1&limit=20.js' //数据接口
-            , title: '部门考勤表'
+            , title: 'Departmental Attendance Sheet'
             ,page: true //开启分页
             ,limits: [5, 10, 15, 20, 50, 100]
             ,limit: 10
@@ -265,17 +272,15 @@
                 {type: 'checkbox', fixed: 'left'}
                 // id是记录条数
                 // field 必须和算法端的数据名称一样才能识别
-                // ,{field: 'id', title: 'ID', width:80, sort: true, fixed: 'left', totalRowText: '合计：'}
-                , {field: 'rid', title: 'Rid', width: 80,totalRowText: 'Total'}
+                , {field: 'rid', title: 'Rid', width: 60,totalRowText: 'Total'}
                 , {field: 'eId', title: 'Eid', width: 80}
                 ,{field: 'name', title: 'name', width:90}
-                , {field: 'dId', title: 'department', width: 80, sort: true}
+                , {field: 'dId', title: 'department', width: 120, sort: true}
                 , {field: 'checkinDate', title: 'date', width: 110, sort: true}
                 , {field: 'arriveTime', title: 'arrive', width: 180}
                 , {field: 'leaveTime', title: 'leave', width: 180}
-                // 考勤结果
                 , {field: 'result', title: 'result', width: 80, sort: true, totalRow: true}
-                , {title: 'more', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
+                // , {title: 'more', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
 
             ]]
         });
@@ -349,10 +354,7 @@
             var data = obj.data;
             var id = data.rid;//选中行的id
 
-            //    console.log("data数据为：", data);
-            //  console.log("id数据为：", data.rid);
             if (obj.event === 'edit') {
-                // layer.alert('编辑行：<br>' + JSON.stringify(data))
                 updateuser(obj, data);
             } else if (obj.event === 'delete') {
                 layer.confirm('sure to delete this line?', function (index) {
@@ -366,9 +368,8 @@
 
         //删除记录
         function deleteuser(idList) {
-
             var url = "../search/deleteRecord?rId=" + idList;
-            console.log("url为：", url);
+            // console.log("url为：", url);
             $.ajax({
                 type: "post",
                 url: url,
@@ -395,6 +396,7 @@
             form.val("aaa", {
                 "rid": data.rid
                 ,"eId":data.eId
+                ,"name":data.name
                 ,"dId":data.dId
                 , "checkinDate": data.checkinDate
                 , "arriveTime": data.arriveTime
@@ -409,9 +411,6 @@
                 content: $("#popUpdateTest")//引用的弹出层的页面层的方式加载修改界面表单
             });
 
-            // console.log("修改原始数据为：", data);
-            // console.log("id类型", typeof data.rid);
-            // console.log("obj为：", obj);
             form.on('submit(demo11)', function (massage) {
 
                 console.log("message为：", massage);
@@ -452,7 +451,7 @@
                 area: ['420px', '330px'],
                 content: $("#popInsertTest")//引用的弹出层的页面层的方式加载修改界面表单
             });
-            console.log("测试输出");
+            //console.log("测试输出");
             //监听提交
             form.on('submit(demo11)', function (message) {
 

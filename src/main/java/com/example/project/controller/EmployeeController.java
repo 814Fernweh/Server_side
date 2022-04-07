@@ -157,45 +157,4 @@ public class EmployeeController {
         }
     }
 
-
-    @RequestMapping(value = "/updateEmp")   //  ,method = RequestMethod.POST
-    @ResponseBody
-    public Map<String, Object> updateEmp(@RequestBody Record re) {
-        try {
-            Map<String, Object> res=new HashMap<>();
-            recordService.updateByPrimaryKey(re);
-            res.put("code", 0);
-            res.put("msg", "200");
-            System.out.println(res);
-            return res;
-        } catch (Exception e) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("code", 1);
-            map.put("msg", "Server busy");
-            e.printStackTrace();
-            return map;
-        }
-    }
-
-    @RequestMapping(value = "/insertEmp")   //  ,method = RequestMethod.POST
-    @ResponseBody
-    public Map<String, Object> insertEmp(@RequestBody Record re) {
-        try {
-            Map<String, Object> res=new HashMap<>();
-            recordService.insert(re);
-            res.put("code", 0);
-            res.put("msg", "200");
-            System.out.println(res);
-            return res;
-        } catch (Exception e) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("code", 1);
-            map.put("msg", "Server busy");
-            e.printStackTrace();
-            return map;
-        }
-    }
-
-
-
 }

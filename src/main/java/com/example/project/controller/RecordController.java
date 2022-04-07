@@ -361,7 +361,6 @@ public class RecordController {
                         TimeZone timeZoneChina = TimeZone.getTimeZone("Asia/Shanghai");//获取时区
                         dateFormatterChina.setTimeZone(timeZoneChina);//设置系统时区
                         Date curDate = new Date();//获取系统时间
-//                        System.out.println(dateFormatterChina.format(curDate));
 
                         record.setArriveTime(curDate);    //添加上班时间
                         record.setAResult("normal");
