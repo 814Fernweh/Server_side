@@ -9,10 +9,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -135,6 +132,65 @@ public class EmployeeController {
             map.put("msg", "Server busy");
             map.put("count", 0);
             map.put("data", "[]");
+            e.printStackTrace();
+            return map;
+        }
+    }
+
+
+    @RequestMapping(value = "/deleteEmp")   //  ,method = RequestMethod.POST
+    @ResponseBody
+    public Map<String, Object> deleteEmp(@RequestParam(name= "eId",required = false,defaultValue= "") Integer eId) {
+        try {
+            Map<String, Object> res=new HashMap<>();
+            employeeService.deleteByPrimaryKey(eId);
+            res.put("code", 0);
+            res.put("msg", "200");
+            System.out.println(res);
+            return res;
+        } catch (Exception e) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("code", 1);
+            map.put("msg", "Server busy");
+            e.printStackTrace();
+            return map;
+        }
+    }
+
+
+    @RequestMapping(value = "/updateEmp")   //  ,method = RequestMethod.POST
+    @ResponseBody
+    public Map<String, Object> updateEmp(@RequestBody Record re) {
+        try {
+            Map<String, Object> res=new HashMap<>();
+            recordService.updateByPrimaryKey(re);
+            res.put("code", 0);
+            res.put("msg", "200");
+            System.out.println(res);
+            return res;
+        } catch (Exception e) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("code", 1);
+            map.put("msg", "Server busy");
+            e.printStackTrace();
+            return map;
+        }
+    }
+
+    @RequestMapping(value = "/insertEmp")   //  ,method = RequestMethod.POST
+    @ResponseBody
+    public Map<String, Object> insertEmp(@RequestBody Record re) {
+        try {
+            Map<String, Object> res=new HashMap<>();
+            recordService.insert(re);
+            res.put("code", 0);
+            res.put("msg", "200");
+            System.out.println(res);
+            return res;
+        } catch (Exception e) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("code", 1);
+            map.put("msg", "Server busy");
             e.printStackTrace();
             return map;
         }

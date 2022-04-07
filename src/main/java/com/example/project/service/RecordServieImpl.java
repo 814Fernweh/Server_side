@@ -74,8 +74,6 @@ public class RecordServieImpl implements RecordService{
 
     @Override
     public  int deleteByPrimaryKey(Integer rid){
-
-
         return recordMapper.deleteByPrimaryKey(rid);
     }
 }

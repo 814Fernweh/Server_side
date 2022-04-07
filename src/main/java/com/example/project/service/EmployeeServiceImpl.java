@@ -54,4 +54,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         map1.put("data",data);
         return map1;
     }
+
+    @Override
+    public int deleteByPrimaryKey(Integer eid){
+        return employeeMapper.deleteByPrimaryKey(eid);
+    }
 }

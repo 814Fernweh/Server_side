@@ -20,4 +20,5 @@ public interface EmployeeService {
   //  List<Employee> selectAll();
     Map<String, Object> selectAll();
     Map<String, Object>  selectByEIDDID(HashMap<String,Object> map);
+    int deleteByPrimaryKey(Integer eid);
 }
