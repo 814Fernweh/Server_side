@@ -9,25 +9,32 @@ import com.arcsoft.face.toolkit.ImageInfo;
 import com.example.project.entity.Employee;
 import com.example.project.entity.Face;
 import com.example.project.entity.Record;
+import com.example.project.entity.Regulation;
 import com.example.project.service.EmployeeService;
 import com.example.project.service.FaceService;
 import com.example.project.service.RecordService;
+import com.example.project.service.RegulationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import sun.misc.BASE64Decoder;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static com.arcsoft.face.toolkit.ImageFactory.getRGBData;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 // 用客户端的照片 做活体检测（不是翻拍） 和人脸对比
 // 安卓app有权限管理 可以禁止访问相册等软件
 @Controller
@@ -35,13 +42,15 @@ import static com.arcsoft.face.toolkit.ImageFactory.getRGBData;
 @RequestMapping(value = "/attendance")//设置访问改控制类的"别名"
 //给安卓客户端 调用的服务器接口 客户端至少3个接口 登录 考勤 查询考勤信息
 public class RecordController {
-
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
     private FaceService faceService;
     @Resource
     private EmployeeService employeeService;
     @Resource
     private RecordService recordService;
+    @Resource
+    private RegulationService regulationService;
 
     //reference: https://www.it610.com/article/1293097618573959168.htm   判断经纬度的
     private static double PI = 3.14159265;
@@ -50,13 +59,34 @@ public class RecordController {
     double clientLati,clientLong;
     Integer clienteID,clientType;
     Integer weekclienteID,flag;
+    String radius="500";
 
+    @RequestMapping(value="/changeRange",method = {RequestMethod.POST})
+    @ResponseBody
+    public  Map<String, Object>  changeRange(String dep) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        if(dep.equals("1")){
+            radius="300";
+        }
+        if(dep.equals("2")){
+            radius="500";
+        }
+        if(dep.equals("3")){
+            radius="800";
+        }
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("code", 0);
+        map.put("msg", "change ok");
+        map.put("data", radius);
+        logger.info("administrator change the standard location range to "+ radius);
+        return map;
+    }
 
     @RequestMapping(value="/getData",method = {RequestMethod.POST})
     @ResponseBody
     public Map<String, Object> getJsonData(String JsonData) throws IOException, ParseException {
         String jpegFilename=null;
-
         JSONObject initData=JSONObject.parseObject(JsonData);
         clientLati= Double.valueOf(initData.getString("Latitude"));
         clientLong= Double.valueOf(initData.getString("Longitude"));
@@ -87,7 +117,7 @@ public class RecordController {
             }
         }
 
-        int recordResult=addRecord(clientType,clienteID,clientLong,clientLati,jpegFilename);
+        int recordResult=addRecord(clientType,clienteID,clientLong,clientLati,jpegFilename,radius);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("resultCode",recordResult);
         String msg;
@@ -293,7 +323,7 @@ public class RecordController {
     }
 
     // 判断时间 上班or下班or 不在考勤时间内 在查询统计时再判断、输出 不存在数据库里了
-    public int addRecord(Integer type,Integer eid,double longitude,double latitude,String filename) throws ParseException {
+    public int addRecord(Integer type,Integer eid,double longitude,double latitude,String filename,String radius) throws ParseException {
             // 不能删掉的！！！！！！判斷數據庫有無記錄 上班
 //            Record re;
 //            Date date = new Date();
@@ -306,7 +336,7 @@ public class RecordController {
 //            }
 
 
-        int ca=checkAttendance(eid,longitude,latitude,filename);
+        int ca=checkAttendance(eid,longitude,latitude,filename,radius);
         if(ca!=0){
             return ca;
         }
@@ -448,7 +478,7 @@ public class RecordController {
     // 客户端传入 employee的id 地理位置 人脸照片 与数据库里存的数据对比
     // 返回数字 再根据数字判断 是更新record还是不更新  加入当前日期、时间 作为考勤时间
     // return0 说明考勤成功需要加一条record  return 1说明失败，提示用户重新考勤
-    public int checkAttendance(Integer eid, double longitude, double latitude, String filename) {
+    public int checkAttendance(Integer eid, double longitude, double latitude, String filename,String radius) {
 
         // 先判断位置对不对
         Employee employee;
@@ -458,7 +488,7 @@ public class RecordController {
         double stan_longitude = employee.getLongitude().doubleValue();
         double stan_latitude = employee.getLatitude().doubleValue();
         // 在半径为500m的圆内
-        String radius = "800";
+//        String radius = "500";
         boolean withinLocation = isInCircle(stan_longitude, stan_latitude, longitude, latitude, radius);
         if (!withinLocation)
         {

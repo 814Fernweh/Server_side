@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Regulation</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" tppabs="http://res.layui.com/layui/dist/css/layui.css?t=1632428048355" media="all">
+    <style>
+        body{margin: 10px;}
+        .demo-carousel{height: 200px; line-height: 200px; text-align: center;}
+    </style>
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+    <legend>Add Employee</legend>
+</fieldset>
+
+<!--表单数据提交，所有表单数据都会被提交到action所指的地方，在后端的获取轻而易举。-->
+<form class="layui-form layui-form-pane" action="" method=“post” lay-filter="example">
+
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">longitude</label>-->
+<!--        <div class="layui-input-block">-->
+<!--            <input type="text" name="longi" lay-verify="required" placeholder="Please enter the employee's standard longitude" autocomplete="off" class="layui-input">-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">latitude</label>-->
+<!--        <div class="layui-input-block">-->
+<!--            <input type="text" name="latit" lay-verify="required" placeholder="Please enter the employee's standard latitude" autocomplete="off" class="layui-input">-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">Standard Range</label>
+        <div class="layui-input-block">
+            <select name="dep" lay-filter="aihao">
+                <option value="">Please select the location range needed</option>
+                <option value="1">300 meters</option>
+                <option value="2">500 meters</option>
+                <option value="3">800 meters</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block" text-align="center">
+            <button   type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">submit</button>
+        </div>
+    </div>
+</form>
+
+
+<script type="text/javascript"  src="/static/js/jquery-3.5.1.min.js" ></script>
+<script src="/static/layui/layui.js"
+        tppabs="http://res.layui.com/layui/dist/layui.js?t=1632428048355"></script>
+<script>
+    layui.config({
+        version: '1632428048355'
+    });
+    layui.use(['form', 'layedit', 'laydate','upload', 'element', 'layer'], function(){
+        var $ = layui.jquery
+            ,form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,upload = layui.upload
+
+
+
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+
+        //监听指定开关
+        form.on('switch(switchTest)', function(data){
+            layer.msg('checked：'+ (this.checked ? 'true' : 'false'), {
+                offset: '6px'
+            });
+            layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+        });
+
+        // 监听提交  !!!! 提交表单到服务器数据库
+        form.on('submit(demo1)', function(data){
+            $.ajax({
+                url:'/attendance/changeRange',
+                method:'post',
+                data:data.field,
+                dataType:'JSON',
+                success:function(res){
+                    if(res.code=='0'){
+                        layer.msg("change range successfully",{icon: 1, time: 3000},function(){location.reload();}); //提交成功后刷新页面
+                    }
+                    else
+                        alert(res.msg);
+                },
+                error:function (data) {
+
+                }
+            });
+            return false;
+        });
+
+        //拖拽上传
+        upload.render({
+            elem: '#test10'
+            ,url: 'https://httpbin.org/post' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+            ,done: function(res){
+                layer.msg('上传成功');
+                layui.$('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', res.files.file);
+                console.log(res)
+            }
+        });
+
+    });
+</script>
+<script src="/res/static/tongji/baidu.js"></script>
+</body>
+</html>

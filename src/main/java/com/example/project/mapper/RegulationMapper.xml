@@ -5,21 +5,24 @@
     <id column="Reid" property="reid" jdbcType="INTEGER" />
     <result column="onWork" property="onwork" jdbcType="TIME" />
     <result column="offWork" property="offwork" jdbcType="TIME" />
+    <result column="ARange" property="range" jdbcType="CHAR" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from regulation
     where Reid = #{reid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.example.project.entity.Regulation" >
-    insert into regulation (Reid, onWork, offWork
+    insert into regulation (Reid, onWork, offWork,ARange
       )
     values (#{reid,jdbcType=INTEGER}, #{onwork,jdbcType=TIME}, #{offwork,jdbcType=TIME}
+    ,#{range,jdbcType=CHAR}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.example.project.entity.Regulation" >
     update regulation
     set onWork = #{onwork,jdbcType=TIME},
-      offWork = #{offwork,jdbcType=TIME}
+      offWork = #{offwork,jdbcType=TIME},
+      ARange=#{range,jdbcType=CHAR}
     where Reid = #{reid,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

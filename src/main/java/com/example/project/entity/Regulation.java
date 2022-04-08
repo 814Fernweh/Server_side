@@ -4,10 +4,17 @@ import java.util.Date;
 
 public class Regulation {
     private Integer reid;
-
     private Date onwork;
-
     private Date offwork;
+    private String range;
+
+    public String getRange() {
+        return range;
+    }
+
+    public void setRange(String range) {
+        this.range = range;
+    }
 
     public Integer getReid() {
         return reid;
