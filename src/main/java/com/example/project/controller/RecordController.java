@@ -95,6 +95,15 @@ public class RecordController {
             case 0:
                 msg="Attendance Success!";
                 break;
+            case 1:
+                msg="Late Arrival!";
+                break;
+            case 2:
+                msg="Early Departure!";
+                break;
+            case 3:
+                msg="Already clocked in at work";
+                break;
             case -1:
                 msg="Far from your correct location";
                 break;
@@ -388,7 +397,7 @@ public class RecordController {
                         record.setResult("0");   // 上班迟到了
                         recordService.insert(record);
                         System.out.print("3.Successful insertion of new work data\n");
-                        return 0;
+                        return 1;
                     }
                 }
 
@@ -401,7 +410,7 @@ public class RecordController {
                     if(resultA==0 || resultA<0 ) {
                         // c1相等c2  c1小于c2   时间早于上班时间
                         // 不更新
-                        return 0;
+                        return 3;
 
                     }
                     if(resultL==0 || resultL>0 ) {
@@ -426,7 +435,7 @@ public class RecordController {
                         updateRe.setLResult("early departure");
                         updateRe.setResult("0");
                         recordService.updateByPrimaryKey(updateRe);
-                        return 0;
+                        return 2;
 
                     }
                 }
