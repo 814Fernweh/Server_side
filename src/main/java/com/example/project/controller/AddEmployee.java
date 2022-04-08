@@ -30,11 +30,13 @@ import java.util.List;
 import java.util.Map;
 
 import static com.arcsoft.face.toolkit.ImageFactory.getRGBData;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @Controller
 @Transactional
 @RequestMapping(value = "/addEmp")//设置访问改控制类的"别名"
 public class AddEmployee {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
     private EmployeeService employeeService;
     @Resource
@@ -84,7 +86,7 @@ public class AddEmployee {
         map.put("code", 0);
         map.put("msg", "添加成功");
         map.put("data", e);
-        // request.getSession().setAttribute("employee", e);
+        logger.info("administrator add a new employee of ID "+ no);
         return map;
     }
 

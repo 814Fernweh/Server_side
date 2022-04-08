@@ -21,11 +21,13 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @Controller
 @Transactional
 @RequestMapping(value = "/employee")//设置访问改控制类的"别名"
 public class EmployeeController {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
     private EmployeeService employeeService;
     @Resource
@@ -125,6 +127,7 @@ public class EmployeeController {
             map.put("code", 0);
             map.put("msg", "Success");
             map.put("count", pageInfo.getTotal());
+            logger.info("administrator search the employee information");
             return map;
         } catch (Exception e) {
             Map<String, Object> map = new HashMap<String, Object>();
@@ -146,6 +149,7 @@ public class EmployeeController {
             employeeService.deleteByPrimaryKey(eId);
             res.put("code", 0);
             res.put("msg", "200");
+            logger.info("administrator delete the employee of ID "+ eId);
             System.out.println(res);
             return res;
         } catch (Exception e) {
