@@ -32,18 +32,18 @@ public class EmployeeController {
     private EmployeeService employeeService;
     @Resource
     private RecordService recordService;
-    // 启动程序的初始页面 判断是否有管理员登录
+    // Initial page to start the program Determine if an administrator is logged in
     @RequestMapping(value = "/initial")
     @ResponseBody
     public void initial(HttpServletRequest request, HttpServletResponse response) {
         try {
             Employee employee = (Employee) request.getSession().getAttribute("employee");
-            //若当前用户存在，进入主页面
+            //If the current user exists, go to the main page
             if (employee != null) {
                 response.setContentType("text/html;charset=utf-8");
                 ((HttpServletResponse) response).sendRedirect("/index.html");
             }else {
-                // 重定向页面跳转 登录页面 进行管理员登录
+                // Redirect page to login page for admin login
                 ((HttpServletResponse) response).sendRedirect("/login.html");
             }
         } catch (Exception e) {
@@ -53,33 +53,31 @@ public class EmployeeController {
 
 
     /*
-     **输入账号密码登录校验方法
+     **Login verification method by entering your account password
      * */
     @RequestMapping(value="/employeeLogin",method = {RequestMethod.POST})
     @ResponseBody
     public Map<String, Object> login(String telephone, String password) {
-        // Map是以键值形式存储数据，有点类似于数组。string是它的键，存储的类型为String
+
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        System.out.println(telephone + "===" + password);
+       // System.out.println(telephone + "===" + password);
         Employee employee = employeeService.selectByTele(telephone);
-        System.out.println(employee);
+    //    System.out.println(employee);
         Map<String, Object> map = new HashMap<String, Object>();
         if (employee!= null) {
             if (employee.getPwd().equals(password)) {
                 map.put("code", 0);
-                map.put("msg", "登录成功");
+                map.put("msg", "login successfully");
                 map.put("data", employee);
                 request.getSession().setAttribute("employee", employee);
             } else {
                 map.put("code", 1);
-                map.put("msg", "用户名或密码错误");
+                map.put("msg", "Incorrect username or password");
             }
         }
         return map;
     }
-
-
 
     @RequestMapping(value="/changePwd",method = {RequestMethod.POST})
     @ResponseBody
@@ -89,9 +87,9 @@ public class EmployeeController {
         Integer weekclienteID = weekdata.getInteger("eID");
         String newpwd=weekdata.getString("newpwd");
         Employee e;
-        // 找到那个employee
+        // find the employee
         e=employeeService.selectByPrimaryKey(weekclienteID);
-        // 先set新的pwd  然后用updatePwdByPrimaryKey来更新整条employee数据
+        // First set the new pwd and then update the entire employee data with updatePwdByPrimaryKey
         e.setPwd(newpwd);
         employeeService.updatePwdByPrimaryKey(e);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -105,23 +103,20 @@ public class EmployeeController {
     public Map<String, Object> getEmployee(int page,int limit,
                                    @RequestParam(name= "dId",required = false,defaultValue= "") Integer dId,
                                    @RequestParam(name= "eId",required = false,defaultValue= "") Integer eId) {
-        List<String> dateList = new ArrayList<String>();  // 放日期的
+        List<String> dateList = new ArrayList<String>();  // date
         try {
             Map<String,Object> queryMap = new HashMap<String,Object>();
-            queryMap.put( "dId",dId);  // 没错 可以正确查询 并显示在table里面
+            queryMap.put( "dId",dId);
             queryMap.put( "eId",eId);
-            //查询之前调用，传入页码，以及每页数量
+            //Called before the query, pass in the page number, and the number of pages per page
             PageHelper.startPage(page, limit);
-            //startPage后面紧跟的查询是分页查询
+            //The query immediately after startPage is a paging query
             Map<String, Object> map0 = employeeService.selectByEIDDID((HashMap<String, Object>) queryMap);
 
             List<Employee> users = (List<Employee>) map0.get("data");
-           // List<Employee> newlist =new ArrayList<>();  // 放指定日期范围内的record
             PageInfo pageInfo;
-
             pageInfo = new PageInfo(users,limit);
-
-            //用PageInfo对结果进行包装,传入连续显示的页数
+            //Wrap the results with PageInfo, passing in the number of consecutive pages to be displayed
             Map<String, Object> map =new HashMap<>();
             map.put("data",pageInfo.getList());
             map.put("code", 0);
@@ -150,7 +145,7 @@ public class EmployeeController {
             res.put("code", 0);
             res.put("msg", "200");
             logger.info("administrator delete the employee of ID "+ eId);
-            System.out.println(res);
+//            System.out.println(res);
             return res;
         } catch (Exception e) {
             Map<String, Object> map = new HashMap<String, Object>();

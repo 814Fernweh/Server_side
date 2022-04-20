@@ -10,7 +10,6 @@ import com.example.project.entity.Employee;
 import com.example.project.entity.Face;
 import com.example.project.service.EmployeeService;
 import com.example.project.service.FaceService;
-import com.example.project.service.RecordService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 @Controller
 @Transactional
-@RequestMapping(value = "/addEmp")//设置访问改控制类的"别名"
+@RequestMapping(value = "/addEmp")
 public class AddEmployee {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
@@ -42,13 +41,14 @@ public class AddEmployee {
     @Resource
     private FaceService faceService;
 
-    // 启动程序的初始页面 判断是否有管理员登录
+    // Initial page to start the program Determine if an administrator is logged in
     @RequestMapping(value = "/add_init")
     @ResponseBody
     public void search(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ((HttpServletResponse) response).sendRedirect("AddEmployee.html");
     }
 
+    // administrator add a new employee
     @RequestMapping(value="/addE",method = {RequestMethod.POST})
     @ResponseBody
     public Map<String, Object> add(Integer no, String tele, String pwd, String ename,
@@ -84,29 +84,28 @@ public class AddEmployee {
         Map<String, Object> map = new HashMap<String, Object>();
 
         map.put("code", 0);
-        map.put("msg", "添加成功");
+        map.put("msg", "add ok");
         map.put("data", e);
         logger.info("administrator add a new employee of ID "+ no);
         return map;
     }
 
-
-    //图片上传并提取特征值 加入数据库  接口   https://www.jianshu.com/p/d0eb7c62e011 参考这个
+    // test
+    //Image uploaded and feature values extracted Add to database
+    //  ref  https://www.jianshu.com/p/d0eb7c62e011
     @PostMapping("/uploadImage")
     @ResponseBody
     public Map<String,Object> uploadImage(@RequestParam("file") MultipartFile file) {
         Map<String,Object> map  = new HashMap<>();
-        // 图片保存位置
+        // where to save
         String uploadDir = "D:/0-YEAR4/InividualProject/project/src/main/resources/faceimage/";
         try {
-            // 图片路径
             String imgUrl = null;
-            String a=file.getOriginalFilename();   // 原始名字
-            //上传  UploadUtils 自定义的 在config里面
+            String a=file.getOriginalFilename();   // initial name
             String filename = UploadUtils.upload(file, uploadDir, file.getOriginalFilename());
             if (filename != null) {
                 imgUrl = new File(uploadDir).getName() + "/" + file.getName();
-                // 获取人脸特征值  存入数据库
+                // Get face feature values and store them in the database
                 String appId = "CDHewBaWcAy2uz4Mn8raaWneBjC7C7wUYaotz2Enx3Hz";
                 String sdkKey = "AQD5PgF41UwbfD59A1ncZfdBHtd1XCAV8MhNaASdNZ4F";
                 FaceEngine faceEngine = new FaceEngine("D:\\0-YEAR4\\InividualProject\\arcsoft_lib");
@@ -151,18 +150,15 @@ public class AddEmployee {
                 //特征提取 图片1
                 FaceFeature faceFeature = new FaceFeature();
                 errorCode = faceEngine.extractFaceFeature(imageInfo.getImageData(), imageInfo.getWidth(), imageInfo.getHeight(), imageInfo.getImageFormat(), faceInfoList.get(0), faceFeature);
-                //     System.out.println("特征值：" + faceFeature.getFeatureData().toString());
-                //    System.out.println("特征值大小：" + faceFeature.getFeatureData().length);
+
 
                 Face face= new Face();
-                // 员工的工号 对应的人脸值 由公司存入数据库 不需要员工自己录入
-            //    face.setFid(1);
                 Integer end=file.getOriginalFilename().lastIndexOf(".");
                 Integer eid= Integer.valueOf(file.getOriginalFilename().substring(0,end));
                 face.seteId(eid);
                 face.setFeature(faceFeature.getFeatureData());
                 faceService.insert(face);
-                System.out.print("成功插入人脸\n");
+                System.out.print("add ok\n");
 
             }
             map.put("code",0);

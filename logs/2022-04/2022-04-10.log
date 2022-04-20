@@ -1,0 +1,579 @@
+2022-04-10 10:12:44.113  INFO 30400 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 30400 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 10:12:44.119  INFO 30400 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 10:12:45.700  WARN 30400 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:12:45.701  WARN 30400 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:12:45.701  WARN 30400 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:12:45.701  WARN 30400 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:12:45.701  WARN 30400 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:12:45.702  WARN 30400 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:12:45.702  WARN 30400 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 10:12:46.014  INFO 30400 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$f5b5a4c9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 10:12:46.110  INFO 30400 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 10:12:46.686  INFO 30400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 10:12:46.709  INFO 30400 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 10:12:46.711  INFO 30400 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 10:12:46.714  INFO 30400 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 10:12:46.718  INFO 30400 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 10:12:46.718  INFO 30400 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 10:12:46.719  INFO 30400 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 10:12:46.748  INFO 30400 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 10:12:47.090  INFO 30400 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 10:12:47.091  INFO 30400 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2861 ms
+2022-04-10 10:12:49.029  INFO 30400 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 10:12:49.369  INFO 30400 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 10:12:49.669  INFO 30400 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 10:12:49.670  INFO 30400 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 10:12:49.671  INFO 30400 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 10:12:49.675  INFO 30400 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 10:12:50.006  INFO 30400 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 10:12:50.051  INFO 30400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 10:12:50.071  INFO 30400 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 7.177 seconds (JVM running for 9.737)
+2022-04-10 10:16:10.699  INFO 30400 --- [http-nio-8081-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 10:16:10.699  INFO 30400 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 10:16:10.703  INFO 30400 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-10 10:16:10.863  INFO 30400 --- [http-nio-8081-exec-3] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 10:59:20.374  INFO 30400 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 10:59:20.375  INFO 30400 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 10:59:20.380  INFO 30400 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 10:59:38.912  INFO 18176 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 18176 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 10:59:38.916  INFO 18176 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 10:59:40.051  WARN 18176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:59:40.052  WARN 18176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:59:40.052  WARN 18176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:59:40.052  WARN 18176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:59:40.052  WARN 18176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:59:40.052  WARN 18176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 10:59:40.053  WARN 18176 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 10:59:40.248  INFO 18176 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b571361a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 10:59:40.311  INFO 18176 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 10:59:40.618  INFO 18176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 10:59:40.632  INFO 18176 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 10:59:40.633  INFO 18176 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 10:59:40.633  INFO 18176 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 10:59:40.635  INFO 18176 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 10:59:40.636  INFO 18176 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 10:59:40.636  INFO 18176 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 10:59:40.642  INFO 18176 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 10:59:40.931  INFO 18176 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 10:59:40.932  INFO 18176 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1933 ms
+2022-04-10 10:59:41.750  INFO 18176 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 10:59:41.838  INFO 18176 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 10:59:41.999  INFO 18176 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 10:59:42.000  INFO 18176 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 10:59:42.000  INFO 18176 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 10:59:42.001  INFO 18176 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 10:59:42.144  INFO 18176 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 10:59:42.167  INFO 18176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 10:59:42.178  INFO 18176 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 4.428 seconds (JVM running for 6.03)
+2022-04-10 10:59:44.090  INFO 18176 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 10:59:44.091  INFO 18176 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 10:59:44.093  INFO 18176 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-10 10:59:44.698  INFO 18176 --- [http-nio-8081-exec-10] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 10:59:45.629  INFO 18176 --- [http-nio-8081-exec-1] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 10:59:45.631  INFO 18176 --- [http-nio-8081-exec-10] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:02:33.136  INFO 18176 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:02:33.138  INFO 18176 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 11:02:33.147  INFO 18176 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 11:02:39.135  INFO 31272 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 31272 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:02:39.139  INFO 31272 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:02:40.220  WARN 31272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:02:40.220  WARN 31272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:02:40.220  WARN 31272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:02:40.220  WARN 31272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:02:40.221  WARN 31272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:02:40.221  WARN 31272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:02:40.221  WARN 31272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:02:40.351  INFO 31272 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$cdbd4c9a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:02:40.384  INFO 31272 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:02:40.693  INFO 31272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:02:40.704  INFO 31272 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:02:40.705  INFO 31272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:02:40.705  INFO 31272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:02:40.707  INFO 31272 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:02:40.707  INFO 31272 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:02:40.707  INFO 31272 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:02:40.713  INFO 31272 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:02:40.819  INFO 31272 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:02:40.820  INFO 31272 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1577 ms
+2022-04-10 11:02:41.439  INFO 31272 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:02:41.532  INFO 31272 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:02:41.708  INFO 31272 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:02:41.710  INFO 31272 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:02:41.711  INFO 31272 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:02:41.713  INFO 31272 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:02:41.881  INFO 31272 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:02:41.904  INFO 31272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:02:41.915  INFO 31272 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.554 seconds (JVM running for 5.672)
+2022-04-10 11:04:41.875  INFO 31272 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:04:41.877  INFO 31272 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2022-04-10 11:04:47.934  INFO 28020 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 28020 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:04:47.939  INFO 28020 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:04:48.956  WARN 28020 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:04:48.956  WARN 28020 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:04:48.957  WARN 28020 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:04:48.957  WARN 28020 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:04:48.957  WARN 28020 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:04:48.957  WARN 28020 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:04:48.958  WARN 28020 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:04:49.091  INFO 28020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$e5a73c43] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:04:49.125  INFO 28020 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:04:49.384  INFO 28020 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:04:49.394  INFO 28020 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:04:49.395  INFO 28020 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:04:49.395  INFO 28020 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:04:49.396  INFO 28020 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:04:49.397  INFO 28020 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:04:49.397  INFO 28020 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:04:49.400  INFO 28020 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:04:49.501  INFO 28020 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:04:49.501  INFO 28020 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1484 ms
+2022-04-10 11:04:50.065  INFO 28020 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:04:50.144  INFO 28020 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:04:50.277  INFO 28020 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:04:50.277  INFO 28020 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:04:50.278  INFO 28020 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:04:50.280  INFO 28020 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:04:50.434  INFO 28020 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:04:50.458  INFO 28020 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:04:50.470  INFO 28020 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.252 seconds (JVM running for 4.611)
+2022-04-10 11:05:39.648  INFO 28020 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 11:05:39.648  INFO 28020 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 11:05:39.651  INFO 28020 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-10 11:05:40.217  INFO 28020 --- [http-nio-8081-exec-6] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 11:05:41.141  INFO 28020 --- [http-nio-8081-exec-7] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:05:41.142  INFO 28020 --- [http-nio-8081-exec-6] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:06:10.091  INFO 28020 --- [http-nio-8081-exec-6] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:06:10.111  INFO 28020 --- [http-nio-8081-exec-8] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:06:35.455  INFO 28020 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:06:35.457  INFO 28020 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 11:06:35.466  INFO 28020 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 11:06:41.863  INFO 23844 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 23844 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:06:41.868  INFO 23844 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:06:43.821  WARN 23844 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:43.822  WARN 23844 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:43.822  WARN 23844 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:43.822  WARN 23844 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:43.822  WARN 23844 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:43.822  WARN 23844 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:43.823  WARN 23844 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:06:44.014  INFO 23844 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$5ed5a8f9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:06:44.061  INFO 23844 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:06:44.408  INFO 23844 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:06:44.429  INFO 23844 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:06:44.437  INFO 23844 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:06:44.438  INFO 23844 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:06:44.442  INFO 23844 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:06:44.445  INFO 23844 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:06:44.446  INFO 23844 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:06:44.465  INFO 23844 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:06:44.808  INFO 23844 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:06:44.809  INFO 23844 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2853 ms
+2022-04-10 11:06:45.702  INFO 23844 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:06:45.830  INFO 23844 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:06:46.068  INFO 23844 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:06:46.070  INFO 23844 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:06:46.071  INFO 23844 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:06:46.073  INFO 23844 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:06:46.270  INFO 23844 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:06:46.295  INFO 23844 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:06:46.308  INFO 23844 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 5.746 seconds (JVM running for 7.207)
+2022-04-10 11:06:47.145  INFO 23844 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:06:47.146  INFO 23844 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2022-04-10 11:06:52.891  INFO 19536 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 19536 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:06:52.896  INFO 19536 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:06:53.814  WARN 19536 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:53.814  WARN 19536 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:53.815  WARN 19536 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:53.815  WARN 19536 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:53.815  WARN 19536 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:53.815  WARN 19536 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:06:53.816  WARN 19536 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:06:53.948  INFO 19536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$cecc4a48] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:06:53.983  INFO 19536 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:06:54.268  INFO 19536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:06:54.277  INFO 19536 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:06:54.278  INFO 19536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:06:54.278  INFO 19536 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:06:54.281  INFO 19536 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:06:54.281  INFO 19536 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:06:54.281  INFO 19536 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:06:54.284  INFO 19536 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:06:54.398  INFO 19536 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:06:54.399  INFO 19536 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1433 ms
+2022-04-10 11:06:55.024  INFO 19536 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:06:55.136  INFO 19536 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:06:55.360  INFO 19536 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:06:55.361  INFO 19536 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:06:55.361  INFO 19536 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:06:55.363  INFO 19536 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:06:55.527  INFO 19536 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:06:55.547  INFO 19536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:06:55.559  INFO 19536 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.402 seconds (JVM running for 5.005)
+2022-04-10 11:06:57.605  INFO 19536 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 11:06:57.605  INFO 19536 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 11:06:57.607  INFO 19536 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-10 11:06:58.177  INFO 19536 --- [http-nio-8081-exec-8] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 11:06:59.024  INFO 19536 --- [http-nio-8081-exec-8] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:06:59.025  INFO 19536 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:07:29.358  INFO 19536 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:07:29.359  INFO 19536 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 11:07:29.365  INFO 19536 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 11:07:34.157  INFO 28896 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 28896 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:07:34.161  INFO 28896 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:07:35.074  WARN 28896 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:07:35.075  WARN 28896 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:07:35.075  WARN 28896 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:07:35.075  WARN 28896 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:07:35.075  WARN 28896 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:07:35.075  WARN 28896 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:07:35.076  WARN 28896 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:07:35.207  INFO 28896 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b571361a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:07:35.240  INFO 28896 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:07:35.477  INFO 28896 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:07:35.485  INFO 28896 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:07:35.486  INFO 28896 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:07:35.487  INFO 28896 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:07:35.488  INFO 28896 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:07:35.489  INFO 28896 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:07:35.489  INFO 28896 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:07:35.492  INFO 28896 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:07:35.594  INFO 28896 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:07:35.594  INFO 28896 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1370 ms
+2022-04-10 11:07:36.116  INFO 28896 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:07:36.217  INFO 28896 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:07:36.392  INFO 28896 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:07:36.393  INFO 28896 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:07:36.394  INFO 28896 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:07:36.396  INFO 28896 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:07:36.529  INFO 28896 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:07:36.550  INFO 28896 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:07:36.561  INFO 28896 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.132 seconds (JVM running for 4.421)
+2022-04-10 11:07:45.970  INFO 28896 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 11:07:45.971  INFO 28896 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 11:07:45.972  INFO 28896 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-10 11:07:46.532  INFO 28896 --- [http-nio-8081-exec-7] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 11:07:47.438  INFO 28896 --- [http-nio-8081-exec-8] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:07:47.439  INFO 28896 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:09:10.918  INFO 28896 --- [http-nio-8081-exec-2] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:12:12.693  INFO 28896 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:12:12.695  INFO 28896 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 11:12:12.707  INFO 28896 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 11:12:16.745  INFO 20796 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 20796 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:12:16.749  INFO 20796 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:12:17.696  WARN 20796 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:12:17.696  WARN 20796 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:12:17.696  WARN 20796 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:12:17.696  WARN 20796 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:12:17.697  WARN 20796 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:12:17.697  WARN 20796 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:12:17.697  WARN 20796 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:12:17.840  INFO 20796 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b571361a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:12:17.874  INFO 20796 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:12:18.114  INFO 20796 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:12:18.124  INFO 20796 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:12:18.124  INFO 20796 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:12:18.125  INFO 20796 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:12:18.127  INFO 20796 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:12:18.127  INFO 20796 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:12:18.127  INFO 20796 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:12:18.131  INFO 20796 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:12:18.229  INFO 20796 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:12:18.230  INFO 20796 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1406 ms
+2022-04-10 11:12:18.776  INFO 20796 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:12:18.856  INFO 20796 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:12:18.928  INFO 20796 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:12:18.928  INFO 20796 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:12:18.929  INFO 20796 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:12:18.931  INFO 20796 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:12:19.156  INFO 20796 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:12:19.177  INFO 20796 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:12:19.188  INFO 20796 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.182 seconds (JVM running for 5.154)
+2022-04-10 11:12:23.216  INFO 20796 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 11:12:23.217  INFO 20796 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 11:12:23.218  INFO 20796 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-10 11:12:23.807  INFO 20796 --- [http-nio-8081-exec-7] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 11:12:24.770  INFO 20796 --- [http-nio-8081-exec-8] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:12:24.772  INFO 20796 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:13:00.305  INFO 20796 --- [http-nio-8081-exec-9] c.e.project.controller.SearchController  : administrator update the record of ID 1101 on the day of2022-04-04
+2022-04-10 11:13:00.340  INFO 20796 --- [http-nio-8081-exec-10] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:15:16.100  INFO 20796 --- [http-nio-8081-exec-3] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:15:22.968  INFO 20796 --- [http-nio-8081-exec-4] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:15:28.981  INFO 20796 --- [http-nio-8081-exec-6] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:15:37.856  INFO 20796 --- [http-nio-8081-exec-5] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:15:47.729  INFO 20796 --- [http-nio-8081-exec-3] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:15:47.942  INFO 20796 --- [http-nio-8081-exec-4] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:16:18.598  INFO 20796 --- [http-nio-8081-exec-6] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:16:25.484  INFO 20796 --- [http-nio-8081-exec-5] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:16:43.458  INFO 20796 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:17:22.799  INFO 20796 --- [http-nio-8081-exec-9] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:17:27.446  INFO 20796 --- [http-nio-8081-exec-10] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:18:54.475  INFO 20796 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:18:54.476  INFO 20796 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 11:18:54.482  INFO 20796 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 11:19:01.180  INFO 10992 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 10992 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:19:01.184  INFO 10992 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:19:02.255  WARN 10992 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:19:02.256  WARN 10992 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:19:02.256  WARN 10992 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:19:02.256  WARN 10992 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:19:02.256  WARN 10992 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:19:02.256  WARN 10992 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:19:02.257  WARN 10992 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:19:02.438  INFO 10992 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$fdf67bcd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:19:02.480  INFO 10992 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:19:02.754  INFO 10992 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:19:02.766  INFO 10992 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:19:02.767  INFO 10992 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:19:02.768  INFO 10992 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:19:02.771  INFO 10992 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:19:02.772  INFO 10992 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:19:02.772  INFO 10992 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:19:02.776  INFO 10992 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:19:02.905  INFO 10992 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:19:02.905  INFO 10992 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1648 ms
+2022-04-10 11:19:03.706  INFO 10992 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:19:03.823  INFO 10992 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:19:04.057  INFO 10992 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:19:04.057  INFO 10992 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:19:04.058  INFO 10992 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:19:04.059  INFO 10992 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:19:04.217  INFO 10992 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:19:04.243  INFO 10992 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:19:04.254  INFO 10992 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.833 seconds (JVM running for 5.72)
+2022-04-10 11:19:10.090  INFO 10992 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 11:19:10.090  INFO 10992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 11:19:10.092  INFO 10992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-10 11:19:10.698  INFO 10992 --- [http-nio-8081-exec-7] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 11:19:11.666  INFO 10992 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:19:11.666  INFO 10992 --- [http-nio-8081-exec-8] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:19:32.907  INFO 10992 --- [http-nio-8081-exec-9] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:19:56.722  INFO 10992 --- [http-nio-8081-exec-10] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:20:53.529  INFO 10992 --- [http-nio-8081-exec-2] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:21:00.311  INFO 10992 --- [http-nio-8081-exec-3] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:21:03.826  INFO 10992 --- [http-nio-8081-exec-4] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:21:10.665  INFO 10992 --- [http-nio-8081-exec-5] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:21:12.472  INFO 10992 --- [http-nio-8081-exec-6] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:22:10.682  INFO 10992 --- [http-nio-8081-exec-7] c.e.project.controller.AddEmployee       : administrator add a new employee of ID 1106
+2022-04-10 11:22:43.023  INFO 10992 --- [http-nio-8081-exec-2] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:22:52.907  INFO 10992 --- [http-nio-8081-exec-3] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:23:00.474  INFO 10992 --- [http-nio-8081-exec-4] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:23:05.904  INFO 10992 --- [http-nio-8081-exec-5] c.e.p.controller.EmployeeController      : administrator delete the employee of ID 1202
+2022-04-10 11:23:05.935  INFO 10992 --- [http-nio-8081-exec-6] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:23:16.752  INFO 10992 --- [http-nio-8081-exec-7] c.e.project.controller.RecordController  : administrator change the standard location range to 300
+2022-04-10 11:25:38.826  INFO 10992 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:25:38.828  INFO 10992 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 11:25:38.872  INFO 10992 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 11:25:44.146  INFO 21820 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 21820 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:25:44.149  INFO 21820 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:25:45.237  WARN 21820 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:25:45.238  WARN 21820 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:25:45.238  WARN 21820 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:25:45.238  WARN 21820 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:25:45.238  WARN 21820 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:25:45.238  WARN 21820 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:25:45.238  WARN 21820 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:25:45.399  INFO 21820 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$33a0b255] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:25:45.436  INFO 21820 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:25:45.738  INFO 21820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:25:45.749  INFO 21820 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:25:45.750  INFO 21820 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:25:45.751  INFO 21820 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:25:45.753  INFO 21820 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:25:45.753  INFO 21820 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:25:45.753  INFO 21820 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:25:45.758  INFO 21820 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:25:45.892  INFO 21820 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:25:45.892  INFO 21820 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1662 ms
+2022-04-10 11:25:46.464  INFO 21820 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:25:46.564  INFO 21820 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:25:46.783  INFO 21820 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:25:46.785  INFO 21820 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:25:46.786  INFO 21820 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:25:46.789  INFO 21820 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:25:47.004  INFO 21820 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:25:47.035  INFO 21820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:25:47.049  INFO 21820 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.742 seconds (JVM running for 5.19)
+2022-04-10 11:26:18.942  INFO 21820 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 11:26:18.942  INFO 21820 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 11:26:18.944  INFO 21820 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-10 11:26:19.562  INFO 21820 --- [http-nio-8081-exec-7] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 11:26:20.450  INFO 21820 --- [http-nio-8081-exec-8] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:26:20.452  INFO 21820 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:26:45.516  INFO 21820 --- [http-nio-8081-exec-4] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:26:45.617  INFO 21820 --- [http-nio-8081-exec-5] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:27:18.245  INFO 21820 --- [http-nio-8081-exec-6] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:27:23.786  INFO 21820 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:27:30.874  INFO 21820 --- [http-nio-8081-exec-8] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:27:53.607  INFO 21820 --- [http-nio-8081-exec-6] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:27:53.672  INFO 21820 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:28:27.286  INFO 21820 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:28:27.288  INFO 21820 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 11:28:27.296  INFO 21820 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 11:28:32.571  INFO 31204 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 31204 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:28:32.574  INFO 31204 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:28:33.659  WARN 31204 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:28:33.659  WARN 31204 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:28:33.659  WARN 31204 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:28:33.659  WARN 31204 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:28:33.659  WARN 31204 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:28:33.660  WARN 31204 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:28:33.660  WARN 31204 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:28:33.821  INFO 31204 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$21b6fbf8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:28:33.862  INFO 31204 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:28:34.157  INFO 31204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:28:34.166  INFO 31204 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:28:34.167  INFO 31204 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:28:34.168  INFO 31204 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:28:34.170  INFO 31204 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:28:34.171  INFO 31204 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:28:34.171  INFO 31204 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:28:34.174  INFO 31204 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:28:34.284  INFO 31204 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:28:34.285  INFO 31204 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1644 ms
+2022-04-10 11:28:34.917  INFO 31204 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:28:35.007  INFO 31204 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:28:35.170  INFO 31204 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:28:35.171  INFO 31204 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:28:35.172  INFO 31204 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:28:35.173  INFO 31204 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:28:35.309  INFO 31204 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:28:35.335  INFO 31204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:28:35.346  INFO 31204 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.519 seconds (JVM running for 6.171)
+2022-04-10 11:28:39.410  INFO 31204 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 11:28:39.410  INFO 31204 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 11:28:39.411  INFO 31204 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-10 11:28:39.935  INFO 31204 --- [http-nio-8081-exec-6] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 11:28:40.762  INFO 31204 --- [http-nio-8081-exec-7] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:28:40.764  INFO 31204 --- [http-nio-8081-exec-6] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:29:23.025  INFO 31204 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:29:23.026  INFO 31204 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 11:29:23.033  INFO 31204 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 11:29:30.903  INFO 9808 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 9808 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:29:30.906  INFO 9808 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:29:31.860  WARN 9808 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:31.860  WARN 9808 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:31.860  WARN 9808 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:31.860  WARN 9808 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:31.860  WARN 9808 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:31.861  WARN 9808 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:31.861  WARN 9808 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:29:32.014  INFO 9808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$eb92fa32] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:29:32.048  INFO 9808 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:29:32.291  INFO 9808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:29:32.300  INFO 9808 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:29:32.301  INFO 9808 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:29:32.301  INFO 9808 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:29:32.303  INFO 9808 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:29:32.303  INFO 9808 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:29:32.303  INFO 9808 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:29:32.306  INFO 9808 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:29:32.414  INFO 9808 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:29:32.415  INFO 9808 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1447 ms
+2022-04-10 11:29:32.959  INFO 9808 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:29:33.036  INFO 9808 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:29:33.175  INFO 9808 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:29:33.175  INFO 9808 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:29:33.176  INFO 9808 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:29:33.177  INFO 9808 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:29:33.312  INFO 9808 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:29:33.334  INFO 9808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:29:33.345  INFO 9808 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.143 seconds (JVM running for 4.471)
+2022-04-10 11:29:40.618  INFO 9808 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:29:40.619  INFO 9808 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2022-04-10 11:29:46.690  INFO 31572 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 31572 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 11:29:46.694  INFO 31572 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 11:29:47.740  WARN 31572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:47.740  WARN 31572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:47.740  WARN 31572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:47.740  WARN 31572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:47.740  WARN 31572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:47.740  WARN 31572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 11:29:47.741  WARN 31572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 11:29:47.884  INFO 31572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$21b6fbf8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 11:29:47.945  INFO 31572 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 11:29:48.296  INFO 31572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 11:29:48.308  INFO 31572 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:29:48.309  INFO 31572 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 11:29:48.309  INFO 31572 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 11:29:48.311  INFO 31572 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 11:29:48.311  INFO 31572 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 11:29:48.311  INFO 31572 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 11:29:48.315  INFO 31572 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 11:29:48.412  INFO 31572 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 11:29:48.413  INFO 31572 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1655 ms
+2022-04-10 11:29:48.981  INFO 31572 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:29:49.068  INFO 31572 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 11:29:49.226  INFO 31572 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 11:29:49.227  INFO 31572 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 11:29:49.228  INFO 31572 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 11:29:49.231  INFO 31572 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 11:29:49.390  INFO 31572 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 11:29:49.413  INFO 31572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 11:29:49.425  INFO 31572 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 3.437 seconds (JVM running for 4.977)
+2022-04-10 11:29:54.269  INFO 31572 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 11:29:54.270  INFO 31572 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 11:29:54.272  INFO 31572 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-10 11:29:54.796  INFO 31572 --- [http-nio-8081-exec-7] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 11:29:55.612  INFO 31572 --- [http-nio-8081-exec-8] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:29:55.613  INFO 31572 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:29:58.462  INFO 31572 --- [http-nio-8081-exec-9] c.e.project.controller.SearchController  : administrator delete the record of ID 
+2022-04-10 11:29:58.490  INFO 31572 --- [http-nio-8081-exec-10] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:30:23.044  INFO 31572 --- [http-nio-8081-exec-1] c.e.project.controller.SearchController  : administrator insert a new record of ID 1101 on the day of 2022-04-03
+2022-04-10 11:30:23.072  INFO 31572 --- [http-nio-8081-exec-2] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:30:29.111  INFO 31572 --- [http-nio-8081-exec-8] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:30:29.185  INFO 31572 --- [http-nio-8081-exec-9] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:31:20.404  INFO 31572 --- [http-nio-8081-exec-10] c.e.project.controller.SearchController  : administrator delete the record of ID 
+2022-04-10 11:31:20.437  INFO 31572 --- [http-nio-8081-exec-1] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:31:45.165  INFO 31572 --- [http-nio-8081-exec-3] c.e.project.controller.SearchController  : administrator update the record of ID 1101 on the day of2022-03-11
+2022-04-10 11:31:45.195  INFO 31572 --- [http-nio-8081-exec-4] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:32:07.069  INFO 31572 --- [http-nio-8081-exec-5] c.e.project.controller.SearchController  : administrator insert a new record of ID 1101 on the day of 2022-03-01
+2022-04-10 11:32:07.100  INFO 31572 --- [http-nio-8081-exec-6] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:32:24.538  INFO 31572 --- [http-nio-8081-exec-7] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:32:29.383  INFO 31572 --- [http-nio-8081-exec-8] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:32:38.271  INFO 31572 --- [http-nio-8081-exec-9] c.e.project.controller.SearchController  : administrator search the records
+2022-04-10 11:33:20.627  INFO 31572 --- [http-nio-8081-exec-10] c.e.project.controller.AddEmployee       : administrator add a new employee of ID 1208
+2022-04-10 11:33:42.921  INFO 31572 --- [http-nio-8081-exec-5] c.e.p.controller.EmployeeController      : administrator delete the employee of ID 1106
+2022-04-10 11:33:42.960  INFO 31572 --- [http-nio-8081-exec-6] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:33:48.087  INFO 31572 --- [http-nio-8081-exec-7] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:33:55.234  INFO 31572 --- [http-nio-8081-exec-8] c.e.p.controller.EmployeeController      : administrator search the employee information
+2022-04-10 11:34:01.388  INFO 31572 --- [http-nio-8081-exec-9] c.e.project.controller.RecordController  : administrator change the standard location range to 800
+2022-04-10 11:40:34.096  INFO 31572 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 11:40:34.097  INFO 31572 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 11:40:34.103  INFO 31572 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2022-04-10 17:09:03.042  INFO 25228 --- [main] com.example.project.ProjectApplication   : Starting ProjectApplication using Java 1.8.0_241 on DESKTOP-34OK3AB with PID 25228 (D:\0-YEAR4\InividualProject\project\target\classes started by zhuling in D:\0-YEAR4\InividualProject\project)
+2022-04-10 17:09:03.046  INFO 25228 --- [main] com.example.project.ProjectApplication   : No active profile set, falling back to default profiles: default
+2022-04-10 17:09:04.141  WARN 25228 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'departmentMapper' and 'com.example.project.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 17:09:04.141  WARN 25228 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'employeeMapper' and 'com.example.project.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 17:09:04.141  WARN 25228 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'faceMapper' and 'com.example.project.mapper.FaceMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 17:09:04.142  WARN 25228 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'managerMapper' and 'com.example.project.mapper.ManagerMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 17:09:04.142  WARN 25228 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'recordMapper' and 'com.example.project.mapper.RecordMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 17:09:04.142  WARN 25228 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'regulationMapper' and 'com.example.project.mapper.RegulationMapper' mapperInterface. Bean already defined with the same name!
+2022-04-10 17:09:04.143  WARN 25228 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.project]' package. Please check your configuration.
+2022-04-10 17:09:04.345  INFO 25228 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$c6a6464a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-10 17:09:04.414  INFO 25228 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-04-10 17:09:04.745  INFO 25228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-04-10 17:09:04.756  INFO 25228 --- [main] o.a.coyote.http11.Http11NioProtocol      : Initializing ProtocolHandler ["http-nio-8081"]
+2022-04-10 17:09:04.758  INFO 25228 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-10 17:09:04.758  INFO 25228 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-04-10 17:09:04.760  INFO 25228 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-04-10 17:09:04.760  INFO 25228 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-04-10 17:09:04.761  INFO 25228 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-04-10 17:09:04.784  INFO 25228 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-04-10 17:09:04.918  INFO 25228 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-10 17:09:04.919  INFO 25228 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1802 ms
+2022-04-10 17:09:05.630  INFO 25228 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-10 17:09:05.763  INFO 25228 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-04-10 17:09:05.949  INFO 25228 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-10 17:09:05.950  INFO 25228 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-10 17:09:05.951  INFO 25228 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-10 17:09:05.952  INFO 25228 --- [main] t.m.m.autoconfigure.MapperCacheDisabler  : Clear EntityHelper entityTableMap cache.
+2022-04-10 17:09:06.127  INFO 25228 --- [main] o.a.coyote.http11.Http11NioProtocol      : Starting ProtocolHandler ["http-nio-8081"]
+2022-04-10 17:09:06.153  INFO 25228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-04-10 17:09:06.170  INFO 25228 --- [main] com.example.project.ProjectApplication   : Started ProjectApplication in 4.127 seconds (JVM running for 5.81)
+2022-04-10 17:11:04.609  INFO 25228 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 17:11:04.609  INFO 25228 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-10 17:11:04.612  INFO 25228 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-04-10 17:11:04.728  INFO 25228 --- [http-nio-8081-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2022-04-10 17:47:10.560  INFO 25228 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-10 17:47:10.564  INFO 25228 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2022-04-10 17:47:10.568  INFO 25228 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

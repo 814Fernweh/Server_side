@@ -20,20 +20,20 @@ import org.slf4j.LoggerFactory;
 
 @Controller
 @Transactional
-@RequestMapping(value = "/search")//设置访问改控制类的"别名"
+@RequestMapping(value = "/search")
 public class SearchController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Resource
     private RecordService recordService;
 
-    // 启动程序的初始页面 判断是否有管理员登录
+
     @RequestMapping(value = "/search_init")
     @ResponseBody
     public void search(HttpServletRequest request, HttpServletResponse response) throws IOException {
                 ((HttpServletResponse) response).sendRedirect("/searchAll.html");
     }
 
-    //   展示所有考勤记录
+
     @RequestMapping("/searchAll")
     @ResponseBody
     public Map<String, Object> searchAll(int page,int limit
@@ -68,7 +68,7 @@ public class SearchController {
     }
 
     /**
-     * 根据一段时间获取该段时间的所有日期  倒序排序
+     * Get all dates for a period of time sorted in reverse order
      * @param startDate
      * @param endDate
      * @return yyyy-MM-dd
@@ -85,7 +85,7 @@ public class SearchController {
             calendar.setTime(dateTwo);
 
             dateList.add(endDate);
-            while (calendar.getTime().after(dateOne)) { //倒序时间,顺序after改before其他相应的改动。
+            while (calendar.getTime().after(dateOne)) {
                 calendar.add(Calendar.DAY_OF_MONTH, -1);
                 dateList.add(sdf.format(calendar.getTime()));
             }
@@ -96,26 +96,24 @@ public class SearchController {
     }
 
 
-    // 按部门查询  https://blog.csdn.net/changyana/article/details/113444574
-    @RequestMapping(value = "/list")   //  ,method = RequestMethod.POST
+    // query attendance records  https://blog.csdn.net/changyana/article/details/113444574
+    @RequestMapping(value = "/list")
     @ResponseBody
     public Map<String, Object> get(int page,int limit,
               @RequestParam(name= "dId",required = false,defaultValue= "") Integer dId,
               @RequestParam(name= "eId",required = false,defaultValue= "") Integer eId,
               @RequestParam(name= "start",required = false,defaultValue= "") String start,
               @RequestParam(name= "end",required = false,defaultValue= "") String end) {
-        List<String> dateList = new ArrayList<String>();  // 放日期的
+        List<String> dateList = new ArrayList<String>();
         try {
 
             Map<String,Object> queryMap = new HashMap<String,Object>();
-            queryMap.put( "dId",dId);  // 没错 可以正确查询 并显示在table里面
+            queryMap.put( "dId",dId);
             queryMap.put( "eId",eId);
-            //查询之前调用，传入页码，以及每页数量
             PageHelper.startPage(page, limit);
-            //startPage后面紧跟的查询是分页查询
             Map<String, Object> map0 = recordService.searchByDepartment((HashMap<String, Object>) queryMap);
             List<Record> users = (List<Record>) map0.get("data");
-            List<Record> newlist =new ArrayList<>();  // 放指定日期范围内的record
+            List<Record> newlist =new ArrayList<>();
             PageInfo pageInfo;
             if(!start.equals("") && !end.equals("") ) {
                 dateList = getTwoDaysDay(start, end);
@@ -133,7 +131,7 @@ public class SearchController {
                 pageInfo = new PageInfo(users,limit);
             }
 
-          //用PageInfo对结果进行包装,传入连续显示的页数
+          //Wrap the results with PageInfo, passing in the number of consecutive pages to be displayed
             Map<String, Object> map =new HashMap<>();
             map.put("data",pageInfo.getList());
             map.put("code", 0);
@@ -152,7 +150,7 @@ public class SearchController {
         }
     }
 
-    @RequestMapping(value = "/listTimeRangeRecord")   //  ,method = RequestMethod.POST
+    @RequestMapping(value = "/listTimeRangeRecord")
     @ResponseBody
     public Map<String, Object> getTimeRangeRecord(int page,int limit,
               @RequestParam(name= "start",required = false,defaultValue= "") String start,
@@ -160,19 +158,20 @@ public class SearchController {
 
         List<String> dateList = new ArrayList<String>();
 
-        Map<String, Object> res =new HashMap<>(); // 放最终结果的
+        Map<String, Object> res =new HashMap<>();
         try {
-            // 找到在起止时间里面的所有日期
+            // Find all the dates in the start and end times
             if(!start.equals("") && !end.equals("") ){
                 dateList=getTwoDaysDay(start,end);
 
-                //查询之前调用，传入页码，以及每页数量
+                //Called before the query, pass in the page number, and the number of pages per page
                 PageHelper.startPage(page, limit);
                 //startPage后面紧跟的查询是分页查询
-                // 找到所有数据后 在里面取出对应时间的  放到一个新的List<Record>中 再put成data
+                // Once  have found all the data, retrieve the corresponding time in
+                // new a List<Record>, put data
                 Map<String, Object> all = recordService.selectAll();
                 List<Record> alllist= (List<Record>) all.get("data");
-                List<Record> newlist =new ArrayList<>();  // 放指定日期范围内的record
+                List<Record> newlist =new ArrayList<>();
                 for(int j=0;j<alllist.size();j++){
                     for(int z=0;z<dateList.size();z++){
                         if (dateList.get(z).equals(alllist.get(j).getCheckinDate())){
@@ -181,26 +180,20 @@ public class SearchController {
                     }
                 }
 
-                //用PageInfo对结果进行包装,传入连续显示的页数
                 PageInfo pageInfo = new PageInfo(newlist,limit);
                 res.put("count", pageInfo.getTotal());
                 res.put("data",pageInfo.getList());
 
             }
             else{
-                //查询之前调用，传入页码，以及每页数量
                 PageHelper.startPage(page, limit);
-                //startPage后面紧跟的查询是分页查询
                 Map<String, Object> map0 = recordService.selectAll();
                 List<Record> users = (List<Record>) map0.get("data");
-                //用PageInfo对结果进行包装,传入连续显示的页数
                 PageInfo pageInfo = new PageInfo(users,limit);
-
                 res.put("data",pageInfo.getList());
                 res.put("count", pageInfo.getTotal());
             }
 
-            // 最终返回的map结果
             res.put("code", 0);
             res.put("msg", "Success");
             System.out.println(res);
@@ -219,7 +212,7 @@ public class SearchController {
 
 
 
-    @RequestMapping(value = "/deleteRecord")   //  ,method = RequestMethod.POST
+    @RequestMapping(value = "/deleteRecord")
     @ResponseBody
     public Map<String, Object> deleteRecord(@RequestParam(name= "rId",required = false,defaultValue= "") Integer rId) {
         try {
@@ -229,7 +222,7 @@ public class SearchController {
             re=recordService.selectByPrimaryKey(rId);
             res.put("code", 0);
             res.put("msg", "200");
-            logger.info("administrator delete the record of ID "+re.geteId()+" on the day of"+re.getCheckinDate());
+            logger.info("administrator delete the record of ID ");
             System.out.println(res);
             return res;
         } catch (Exception e) {

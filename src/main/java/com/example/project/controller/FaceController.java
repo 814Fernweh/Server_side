@@ -22,9 +22,9 @@ import com.arcsoft.face.toolkit.ImageInfoEx;
 import static com.arcsoft.face.toolkit.ImageFactory.getGrayData;
 import static com.arcsoft.face.toolkit.ImageFactory.getRGBData;
 
-//  添加人脸信息
+//  Test if face information can be added
 @Controller
-@RequestMapping(value = "/face")//设置访问改控制类的"别名"
+@RequestMapping(value = "/face")
 public class FaceController {
     @Resource
     private FaceService faceService;
@@ -70,22 +70,15 @@ public class FaceController {
             System.out.println("初始化引擎失败");
         }
 
-        //人脸检测 图片1 检测目标
+
         ImageInfo imageInfo = getRGBData(new File("D:\\0-YEAR4\\InividualProject\\project\\database-ZL01.jpg"));
-        // d:\aaa.jpg zl证件照 不是活体      d:\ccc.jpg zl的是活体
-        // C:\Users\zhuling\Desktop\zrm.jpg zrm 证件照 活体
-        // C:\Users\zhuling\Desktop\wlm.jpg  wlm的 活体
 
         List<FaceInfo> faceInfoList = new ArrayList<FaceInfo>();
         errorCode = faceEngine.detectFaces(imageInfo.getImageData(), imageInfo.getWidth(), imageInfo.getHeight(), imageInfo.getImageFormat(), faceInfoList);
-        //特征提取 图片1
         FaceFeature faceFeature = new FaceFeature();
         errorCode = faceEngine.extractFaceFeature(imageInfo.getImageData(), imageInfo.getWidth(), imageInfo.getHeight(), imageInfo.getImageFormat(), faceInfoList.get(0), faceFeature);
-   //     System.out.println("特征值：" + faceFeature.getFeatureData().toString());
-    //    System.out.println("特征值大小：" + faceFeature.getFeatureData().length);
 
         Face face= new Face();
-        // 员工的工号 对应的人脸值 由公司存入数据库 不需要员工自己录入
         face.setFid(1);
         face.seteId(1);
         face.setFeature(faceFeature.getFeatureData());

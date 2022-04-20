@@ -216,6 +216,17 @@
     <a class="layui-btn layui-btn-danger layui-btn-xs data-count-delete" lay-event="delete" >Delete</a>
 </script>
 
+<script type="text/html" id="barDemo">
+    <!--    <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>-->
+    <!--    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>-->
+<!--    <a class="layui-btn layui-btn-xs" lay-event="del">Delete</a>-->
+
+    <!-- 这里同样支持 laytpl 语法，如： -->
+    {{#  if(d.auth > 2){ }}
+    <a class="layui-btn layui-btn-xs" lay-event="check">审核</a>
+    {{#  } }}
+</script>
+
 <script src="/static/layui/layui.js"
         tppabs="http://res.layui.com/layui/dist/layui.js?t=1632428048355"></script>
 <script>
@@ -265,7 +276,7 @@
             ,page: true //开启分页
             ,limits: [5, 10, 15, 20, 50, 100]
             ,limit: 10
-            , toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
+            , toolbar: '#barDemo' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
             , totalRow: true //开启合计行
             , cols: [[ //表头
 

@@ -1,14 +1,4 @@
 package com.example.project.controller;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import com.alibaba.fastjson.JSONArray;
-import com.arcsoft.face.FaceFeature;
-import com.arcsoft.face.FaceInfo;
-import com.arcsoft.face.toolkit.ImageInfo;
-import com.example.project.entity.Face;
-
-import static com.arcsoft.face.toolkit.ImageFactory.getRGBData;
 
 public class LocationController
 {
@@ -16,7 +6,7 @@ public class LocationController
     private static double EARTH_RADIUS = 6378137;
     private static double RAD = Math.PI / 180.0;
 
-    /// 根据提供的两个经纬度计算距离(米) 误差10米 多了10米
+    // Calculate the distance (in metres) from the two latitude and longitude degrees provided
     public static double getDistance(double lng1, double lat1, double lng2, double lat2)
     {
         double radLat1 = lat1 * RAD;
@@ -31,7 +21,7 @@ public class LocationController
     }
 
     /**
-     * 判断一个点是否在圆形区域内
+     * Determining whether a point is within a circular area
      */
     public static boolean isInCircle(double lng1, double lat1, double lng2, double lat2, String radius) {
         double distance = getDistance(lng1, lat1, lng2,lat2);
@@ -45,6 +35,7 @@ public class LocationController
         }
     }
 
+    // test
     public static void main(String[] args) {
 
         System.out.println(getDistance(116.407863, 39.914087, 116.413486,39.914336));

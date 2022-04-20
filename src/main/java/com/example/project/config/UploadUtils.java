@@ -6,16 +6,16 @@ import java.util.UUID;
 
 public class UploadUtils {
 
-    // filename 为3.jpg
+    //test filename is 3.jpg
     public static String upload(MultipartFile file, String path, String fileName) throws Exception {
-        // 生成新的文件名
+        // Generate a new file name
         String realPath = path + "/" +fileName;
         File dest = new File(realPath);
-        // 判断文件父目录是否存在
+        // Determine if the parent directory of a file exists
         if (!dest.getParentFile().exists()) {
             dest.getParentFile().mkdir();
         }
-        // 保存文件
+        // save the file
         file.transferTo(dest);
         return dest.getName();
     }
