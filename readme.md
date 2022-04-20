@@ -8,7 +8,8 @@ After downloading the server side and client side code, first run the server sid
 then connect your Android phone to Android Studio, 
 run Android Studio after successful connection, and you can operate with your phone.
 
-
+The url for administrator is http://127.0.0.1:8081/login.html 
+In client application, you may need to change the BaseURL to your local ip.
 
 
 
